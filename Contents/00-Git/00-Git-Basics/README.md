@@ -1,0 +1,1 @@
+Copy of the lectures & practical challenges to train your skills on web development technologies. Each folder contains a README with the links and descriptions of the exercises.
