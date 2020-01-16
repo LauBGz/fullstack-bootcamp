@@ -71,9 +71,11 @@ let arrLarge = [{"name":"Spain",
             "flag":"https://restcountries.eu/data/esp.svg",
             "regionalBlocs":[{"acronym":"EU","name":"European Union","otherAcronyms":[],"otherNames":[]}],"cioc":"ESP"}]
             
-let strCallingCode = arrLarge[0].callingCodes[0];
+//let strCallingCode = arrLarge[0].callingCodes[0];
+let strCallingCode = arrLarge[0]["callingCodes"];
 let strRegion = arrLarge[0].region;
 let intPopulation = arrLarge[0].population;
+
             
 document.write(` Calling code: ${strCallingCode} - Region: ${strRegion} - Population: ${intPopulation} `)
 
