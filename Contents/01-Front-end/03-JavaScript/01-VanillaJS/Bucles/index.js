@@ -239,15 +239,118 @@
 //-----------------------------------------------------------    
 // Ejercicio 10
 
-const poblaciones = {    
-    "españa": 47000000,    
-    "italia": 61000000,    
-    "francia": 67000000,
+// const poblaciones = {    
+//     "españa": 47000000,    
+//     "italia": 61000000,    
+//     "francia": 67000000,
+// }
+
+// for(let i=0; i<Object.keys(poblaciones).length; i++){    
+//     let clave = Object.keys(poblaciones)[i];    
+//         if (poblaciones[clave] > 60000000){
+//             console.log(clave);
+//         }   
+// }
+
+//17 enero - Ejercicio 1 / Parte A
+
+/**let numeroNetflix = parseInt(prompt("Cuantas series quieres introducir?"));
+let datosNetflix = [];
+for(let i = 0; i < numeroNetflix; i++){
+    datosNetflix.push({
+        "titulo": prompt("Cual es el título?"),
+        "tipo": prompt("Responda P para película o S para serie"),
+        "valoracion": prompt("Valore del 1 al 5")
+    })
+} */
+// let fltNumero = prompt("Número de películas o series que desea insertar:");
+
+// fltNumero = parseFloat(fltNumero);
+
+// let arrArticulos = [];
+
+// for (let i = 1; fltNumero >= i; i++) {
+//     let strNombre = prompt("Nombre de la película o serie:");
+//     let strTipo = prompt("¿Es una película o serie? Inserte P o S:");
+//     let fltValoracion = prompt("Valoración (1 a 5):");
+//     arrArticulos.push({"nombre": strNombre, "tipo": strTipo, "valoracion": fltvaloracion});
+// }
+
+//  console.log(arrArticulos);
+
+//17 enero - Ejercicio 1 / Parte B
+
+let arrArticulos = [
+    {nombre: "Breaking Bad", tipo: "S", valoracion: "4"},
+    {nombre: "Pulp Fiction", tipo: "P", valoracion: "5"},
+    {nombre: "Mision Imposible", tipo: "P", valoracion: "3"},
+    {nombre: "the Walking Dead", tipo: "S", valoracion: "2"},
+    {nombre: "Avatar", tipo: "P", valoracion: "1"}
+];
+
+document.write(`<h2>Series</h2>`);
+
+for (let i = 0; i < arrArticulos.length; i++) {
+    if (arrArticulos[i]["tipo"] === "S") {
+        if (arrArticulos[i]["nombre"] === "Breaking Bad") {
+            document.write(`<p>Nombre de la serie: <span style="color:green;">${arrArticulos[i]["nombre"]}</span>. Valoración: ${arrArticulos[i]["valoracion"]}.</p>`);
+        }else {
+            let serie = `<p>Nombre de la serie: ${arrArticulos[i]["nombre"]}. Valoración: ${arrArticulos[i]["valoracion"]}.</p>`;
+            document.write(serie);
+        }
+    }
 }
 
-for(let i=0; i<Object.keys(poblaciones).length; i++){    
-    let clave = Object.keys(poblaciones)[i];    
-        if (poblaciones[clave] > 60000000){
-            console.log(clave);
-        }   
+document.write(`<h2>Peliculas</h2>`);
+
+let arrPelis = [];
+
+for (let i = 0; i < arrArticulos.length; i++) {
+    if (arrArticulos[i]["tipo"] === "P"){
+        if (arrArticulos[i]["nombre"] === "Pulp Fiction") {
+            document.write(`<p><span style="color:red;">${arrArticulos[i]["nombre"]}</span> ${arrArticulos[i]["valoracion"]}<i class="fa fa-star-o"></i></p>`);
+        }else {
+            let pelicula = `<p>${arrArticulos[i]["nombre"]} ${arrArticulos[i]["valoracion"]}<i class="fa fa-star-o"></i></p>`;
+            document.write(pelicula);
+        }
+    }
 }
+
+
+let numMaxPeli = 0;
+let numMaxSerie = 0;
+let i;
+
+
+for (i = 0; i < arrArticulos.length; i++) {
+    if (arrArticulos[i]["tipo"] === "P") {
+    let num = parseFloat(arrArticulos[i]["valoracion"]);
+        if (numMaxPeli < num){
+            numMaxPeli = num;
+        } 
+    }
+}
+ 
+
+
+for (i = 0; i < arrArticulos.length; i++) {
+    if (arrArticulos[i]["tipo"] === "S") {
+    let num = parseFloat(arrArticulos[i]["valoracion"]);
+        if (numMaxSerie < num){
+            numMaxSerie = num;
+        } 
+    }
+}
+
+
+document.write(`<h3>Mejor serie</h3>`);
+document.write(`<h3>Mejor película</h3>`);
+
+
+//17 enero - Ejercicio 2
+
+
+
+
+
+
