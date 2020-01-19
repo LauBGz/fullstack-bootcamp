@@ -22,3 +22,7 @@ a, a:hover {
 .track img {
   margin-top: 10px;
 }
+
+.img-popover {
+  height: 50px;
+}

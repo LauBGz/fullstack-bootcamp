@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="http://www.lewagon.org/assets/logo-f800df98aa2605c552400667353f47d2.png" />
+
+  <title>Stylus</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- Leave those next 4 lines if you care about users using IE8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body>
+  <!-- Banner-->
+  <div class="banner" style="background:url('images/background.jpg');">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1>WELCOME HOME</h1>
+          <p>Rent unique places to stay from local hosts in 190+ countries.</p>
+          <div class="d-inline-flex">
+            <form class="form-inline">
+                <input class="form-control" type="date" value="check in" id="example-date-input">
+                <input class="form-control" type="date" value="check out" id="example-date-input">
+                <select class="form-control">
+                  <option selected>1 person</option>
+                  <option>2 people</option>
+                  <option>3 people</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- Feature-->
+  <div class="padded features text-center">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <div class="m-3 p-3 option">
+          <img src="./images/globe.png" >
+          <h2>Discover the world</h2>
+          <p>The earth is your new home.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="m-3 p-3 option">
+          <img src="./images/dollar.png">
+          <h2>Pay online</h2>
+          <p>No cash issues anymore.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="m-3 p-3 option">
+          <img src="./images/beer.png">
+          <h2>Meet people</h2>
+          <p>Discover new culture and lifestyle.</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <div class="m-3 p-3 option">
+          <img src="./images/heart.png">
+          <h2>Share and love</h2>
+          <p>Join a community you will love.</p>
+        </div>
+      </div> 
+    </div>  
+  </div>
+  <!-- Card-->
+  <div class="wrapper-grey padded">
+    <div class="container">
+      <h2 class="text-center">Your next trip</h2 class="text-center">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="./images/card-paris.jpg" alt="Paris">
+            <img class="avatar avatar-bordered avatar-large card-user" src="./images/romain.jpeg" alt="Romain">
+            <div class="card-img-overlay">
+              <h3 class="card-category">Paris</h3>
+                <div class="card-description">
+                  <h2>Romain's home</p>
+                  <p>Nice flat in Picadilly</p>
+                </div>
+            <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="./images/card-london.jpeg" alt="London">
+            <img class="avatar avatar-bordered avatar-large card-user" src="./images/anne.jpg" alt="Anne">
+            <div class="card-img-overlay">
+              <h3 class="card-category">London</h3>
+                <div class="card-description">
+                  <h2>Anne's home</p>
+                  <p>Lovely house</p>
+                </div>
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="./images/card-brussels.jpeg" alt="Brussels">
+            <img class="avatar avatar-bordered avatar-large card-user" src="./images/seb.jpg" alt="Seb">
+            <div class="card-img-overlay">
+              <h3 class="card-category">Brussels</h3>
+              <div class="card-description">
+                <h2>Seb's home</p>
+                <p>Charming room with patio</p>
+              </div>
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- Contact-->
+  <div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-xs-12 text-center mb-1 p-5">
+          <h2>Get news from stylus</h2>
+          <p>Leave us your mail and get stylus news</p>
+          <form class="form-inline">
+            <input type="email" placeholder="bob@gmail.com" class="form-control">
+            <input type="submit" value="Subscribe" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </div> 
+  </div>  
+  <!-- Maps-->
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+   
+  <script type="text/javascript">
+  var myLatlng = new google.maps.LatLng(48.852937,2.364178);
+   
+  var myOptions = {
+     zoom: 16,
+     center: myLatlng,
+     scrollwheel: false,
+     mapTypeId: google.maps.MapTypeId.ROADMAP,
+     styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+  };
+   
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);
+  var marker = new google.maps.Marker({
+     position: myLatlng,
+     map: map,
+     title: "You are here!"
+  });
+  </script> 
+  <!-- Footer -->
+  <footer id="footer" class="py-4 text-white-50">
+    <div class="container">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a target="_blank" href="#">
+            <i class="fa fa-youtube"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a target="_blank" href="#">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a target="_blank" href="#">
+            <i class="fa fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a target="_blank" href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+     </ul>
+      <p>Stylus is a fictive product by LeWagon</p>
+    </div>
+  </footer>        
+  <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

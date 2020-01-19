@@ -1,0 +1,47 @@
+.bg-blue {
+    text-align: center;
+    background-color: #3079ab;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+.bg-gray{
+  text-align: center;
+  background-color: #EDEFF0;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.titles {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      text-align: center;
+      color: #828282;
+  }
+
+h1 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: normal;
+}
+
+body > div.bg-blue > h2, body > div.bg-blue > div > div > div > p, body > div.bg-blue > div > div > div > h3 {
+  color: white;
+}
+
+body > div.bg-gray > h2 {
+  color: #828282;
+  padding-bottom: 20px;
+}
+
+.card {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0px 50px 30px 50px;
+  color: #828282;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}

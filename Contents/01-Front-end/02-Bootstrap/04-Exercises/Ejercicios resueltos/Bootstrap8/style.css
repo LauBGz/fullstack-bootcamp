@@ -1,0 +1,19 @@
+.banner{
+    height: 100vh;
+    background-image: url('./img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+.banner h1 {
+  font-size: 56px;
+}
+
+.banner p {
+  font-size: 30px;
+}
+
+#sticky-footer{
+    background-color: black;
+}
