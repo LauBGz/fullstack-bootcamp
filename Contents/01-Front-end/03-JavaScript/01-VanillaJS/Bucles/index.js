@@ -52,7 +52,7 @@
 
 // }
 
-//bucle for
+//bucle                                                                                     
 
 // let palabra = "pelota";
 
@@ -368,9 +368,6 @@ let arrArticulos = [
     }
     document.write(`<div>Artículo;Tipo;Valoración</div>`+artCsv);
 }
-
-
-
 
 
 
