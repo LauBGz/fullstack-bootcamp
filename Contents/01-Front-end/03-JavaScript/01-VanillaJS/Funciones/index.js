@@ -180,40 +180,24 @@
 // let palabra = "oso";
 // checkPalindromo(palabra)
 
-//PALINDROMO
+
 // function checkPalindromo(palabra){
-//     let palabraRev = "";
+//     let resultado = palabra+` es un palíndromo.`;
+//     let x = 0;
 //     for (i=palabra.length-1; i >= 0; i--) {
 //         let letra = palabra[i];
-//         palabraRev += palabra[i];  
+//         if (palabra[i] === palabra[x]){
+//             x++;
+//         }else{
+//             resultado = palabra+` no es un palíndromo.`;
+//         }
 //     }
-//     if (palabraRev === palabra){
-//         document.write(palabra+` es un palíndromo.`);
-//     }else{
-//         document.write(palabra+` no es un palíndromo.`);
-//     }
+//     return resultado;
 // }
 
-// let palabra = "oso";
-// checkPalindromo(palabra)
-
-function checkPalindromo(palabra){
-    let resultado = palabra+` es un palíndromo.`;
-    let x = 0;
-    for (i=palabra.length-1; i >= 0; i--) {
-        let letra = palabra[i];
-        if (palabra[i] === palabra[x]){
-            x++;
-        }else{
-            resultado = palabra+` no es un palíndromo.`;
-        }
-    }
-    return resultado;
-}
-
-let palabra = "casa";
-let esPalindromo = checkPalindromo(palabra)
-console.log(esPalindromo)
+// let palabra = "casa";
+// let esPalindromo = checkPalindromo(palabra)
+// console.log(esPalindromo)
 
 //Ejercicio 1
 
@@ -333,15 +317,15 @@ console.log(esPalindromo)
 // Ejercicio 10
 
 // function checkAge(age){
-//     let resultado;
+//     let resultado = `You are not between 20-3 or 50-60 years old.`;
 //     if ( (age >= 20 && age <= 30) || (age >= 50 && age <= 60)){
-//         resultado = document.write(`You are between 20-30 or 50-60 years old.`)
-//     }else{
-//         resultado = document.write(`You are not between 20-3 or 50-60 years old.`)
+//         resultado = `You are between 20-30 or 50-60 years old.`;
 //     }   
-// }
+//     return resultado;
+// }   
 
-// checkAge(55);
+// let edad = checkAge(25);
+// document.write(edad);
 
 //Ejercicio 11
 
