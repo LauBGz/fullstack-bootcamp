@@ -197,6 +197,24 @@
 // let palabra = "oso";
 // checkPalindromo(palabra)
 
+function checkPalindromo(palabra){
+    let resultado = palabra+` es un palíndromo.`;
+    let x = 0;
+    for (i=palabra.length-1; i >= 0; i--) {
+        let letra = palabra[i];
+        if (palabra[i] === palabra[x]){
+            x++;
+        }else{
+            resultado = palabra+` no es un palíndromo.`;
+        }
+    }
+    return resultado;
+}
+
+let palabra = "casa";
+let esPalindromo = checkPalindromo(palabra)
+console.log(esPalindromo)
+
 //Ejercicio 1
 
 // function miFuncion(numero){
@@ -283,16 +301,16 @@
 
 // Ejercicio 8
 
-function convertTemperature (grados, tipo){
-    if (tipo === "Celsius"){
-        resultado = CelsiusToFahrenheit(grados);
-    }
-    if (tipo === "Fahrenheit"){
-        resultado = FahrenheitToCelsius(grados);
-    }
-}
+// function convertTemperature (grados, tipo){
+//     if (tipo === "Celsius"){
+//         resultado = CelsiusToFahrenheit(grados);
+//     }
+//     if (tipo === "Fahrenheit"){
+//         resultado = FahrenheitToCelsius(grados);
+//     }
+// }
 
-convertTemperature(10, "Celsius");
+// convertTemperature(10, "Celsius");
 
 // Ejercicio 9
 
