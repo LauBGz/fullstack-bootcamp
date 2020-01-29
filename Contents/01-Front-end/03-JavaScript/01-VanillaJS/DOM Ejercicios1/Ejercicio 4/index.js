@@ -8,8 +8,6 @@ for (let i = 0; i < pikachu["moves"].length; i++) {
  
 document.querySelector("body > div").innerHTML = moves;
 
-console.log(pikachu)
-
 
 
 
