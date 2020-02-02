@@ -6,9 +6,9 @@ function httpGetAsync(theUrl, callback)
             callback(JSON.parse(peticion.responseText));
         }
         if (peticion.status == 404){
-            document.querySelector('.usuario').innerHTML = `
+            document.querySelector('.datosUsuario').innerHTML = `
             <div class="error">
-                Does not exist.
+                        Does not exist.
             </div>
             `;
         }
@@ -23,7 +23,7 @@ function imprimirRepos(datosRepos){
 
     reposHTML.innerHTML = `
         <p class="repositorios">Repositories</p>
-    `;
+        `;
 
     for (let i = 0; i < datosRepos.length; i++) {
 
@@ -39,17 +39,24 @@ function imprimirRepos(datosRepos){
                 </p>   
             </div>
         </div> 
-    `;
+        `;
         
     }
-
-    console.log(datosRepos);
-
 }
 
 function imprimir (datosUsuarioGithub){
 
     let usuarioHTML = document.querySelector('.usuario');
+    let name = datosUsuarioGithub["name"];
+    let bio = datosUsuarioGithub["bio"];
+
+    if (name=== null){
+        name = "No info";
+    }
+
+    if (bio === null){
+        bio = "No info";
+    }
 
     usuarioHTML.innerHTML = `
             <div class="d-flex">
@@ -58,11 +65,11 @@ function imprimir (datosUsuarioGithub){
                 </div>
                 <div>
                     <p class="textos"><span class="userName">@${datosUsuarioGithub["login"]}</span></p>
-                    <p class="textos"><span class="userFullName">${datosUsuarioGithub["name"]}</span></p>
-                    <p class="textos"><span class="userBio">${datosUsuarioGithub["bio"]}</span></p>
+                    <p class="textos"><span class="userFullName">${name}</span></p>
+                    <p class="textos"><span class="userBio">${bio}</span></p>
                 </div>
             </div>
-        `
+            `
 
 httpGetAsync("https://cors-anywhere.herokuapp.com/https://api.github.com/users/"+datosUsuarioGithub["login"]+"/repos", imprimirRepos);
    
@@ -70,7 +77,20 @@ httpGetAsync("https://cors-anywhere.herokuapp.com/https://api.github.com/users/"
 
 document.querySelector('.boton').addEventListener("click", () => {
     let usuario = document.querySelector('.input').value;
+    document.querySelector('.datosUsuario').innerHTML = `
+    <div class="usuario">
+    </div>
+    <div class="reposUser">
+    </div>
+    `;
     httpGetAsync("https://cors-anywhere.herokuapp.com/https://api.github.com/users/"+usuario, imprimir);
-}
-);
+    document.querySelector('.input').value = "";
+});
+
+document.querySelector('.input').addEventListener("keypress", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.querySelector('.boton').click();
+    }
+});
 

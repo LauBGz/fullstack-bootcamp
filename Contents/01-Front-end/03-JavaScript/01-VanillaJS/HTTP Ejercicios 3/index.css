@@ -1,18 +1,17 @@
-/* .img-thumbnail{
-    height: 100px;
+.poster {
+    max-height: 75vh;
+    padding-top: 10px;
 }
 
-.card{
-    max-width: 350px;
-    min-height:75vh;
-    flex-direction: column;
-    display: flex;
-    margin-bottom: 20px;
-    margin-right: 50px;
-    background-color:#d4edd9;
-} */
+.pelicula {
+    font-size: 16px;
+    font-weight: bold;
+    border-top-width: 1px;
+    border-top-color:grey;
+    border-top-style: solid;
+    padding-top: 10px;
+}
 
 .datos {
-    font-size: 16px;
     font-weight: bold;
 }

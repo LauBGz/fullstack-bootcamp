@@ -1,4 +1,4 @@
-//Creamos una variable global
+// Variable global
 let tareas = [];
 
 //Funciones
@@ -47,10 +47,11 @@ function Remove(event){
 //eventos
 document.querySelector("#add").addEventListener("click", Add);
 
-document.querySelector("#task").addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-
-  }
+document.querySelector("#task").addEventListener("keypress", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.querySelector('#add').click();
+    }
 });
 
     

@@ -21,6 +21,7 @@ h1 {
     font-size: 36px;
 }
 
+
 .btn-circle.btn-xl {
     width: 70px;
     height: 70px;
@@ -30,9 +31,11 @@ h1 {
     line-height: 1.33;
     position: absolute;
     top: 55px;
-    right: 15px;
+    right: 10px;
 }
 
 .list-group-item{
     border-left-style: solid;
+    border-left-color:#ff8c00;
+    border-left-width: thick;
 }
