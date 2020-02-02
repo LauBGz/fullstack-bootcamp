@@ -20,6 +20,50 @@ function httpGetAsync(theUrl, callback)
 
 let urlPeticion = "https://cors-anywhere.herokuapp.com/http://prana-solutions.com/neoland/api/?";
 
+function crearCelda (tipoCelda, nombreCelda, filaCelda){
+    let celda = document.createElement(tipoCelda);
+    let datoCelda = document.createTextNode(nombreCelda);
+    celda.appendChild(datoCelda);
+    document.getElementById(filaCelda).appendChild(celda);
+};
+
+function imprimir (responseText){
+    let resultado = document.querySelector('.resultados');
+    
+    if (responseText.length === 0){
+        resultado.innerHTML = `
+            <p class="errorBusca">No hay resultados.</p>
+        `;
+    }else{
+        resultado.innerHTML = "";
+
+        console.log(responseText);
+
+        let tabla = document.createElement("TABLE");
+        tabla.setAttribute("id", "myTable");
+        document.querySelector('.resultados').appendChild(tabla);
+
+        let fila = document.createElement("TR");
+        fila.setAttribute("id", "myTrHeader");
+        document.getElementById("myTable").appendChild(fila);
+
+        crearCelda("TH", "Nombre", "myTrHeader");
+        crearCelda("TH", "Categoría", "myTrHeader");
+        crearCelda("TH", "Precio", "myTrHeader");
+        crearCelda("TH", "Código", "myTrHeader");
+
+        for (let index = 0; index <= responseText.length; index++) {
+                fila = document.createElement("TR");
+                fila.setAttribute("id", "myTr"+index);
+                document.getElementById("myTable").appendChild(fila);
+
+                crearCelda("TD", responseText[index]["name"], "myTr"+index);
+                crearCelda("TD", responseText[index]["category"], "myTr"+index);
+                crearCelda("TD", responseText[index]["price"]+"€", "myTr"+index);
+                crearCelda("TD", responseText[index]["code"], "myTr"+index);
+        }
+    }
+}
 
 function crearUrl(url){
     let category= document.querySelector('.custom-select').value;
@@ -29,7 +73,6 @@ function crearUrl(url){
     let pMax = document.querySelector('.inputMax').value;
 
     let urlParameters = "";
-    console.log(category);
 
     if (category !== "Selecciona..."){
         urlParameters += "category=" + category;
@@ -53,95 +96,29 @@ function crearUrl(url){
 
     if (pMin !== ""){
         if (urlParameters === ""){
-            urlParameters += "price=" + pMin;
+            urlParameters += "price_min=" + pMin;
         }else{
-            urlParameters += "&price=" + pMin;
+            urlParameters += "&price_min=" + pMin;
         }
     }
 
     if (pMax !== ""){
         if (urlParameters === ""){
-            urlParameters += "price=" + pMax;
+            urlParameters += "price_max=" + pMax;
         }else{
             urlParameters += "&price=" + pMax;
         }
     }
 
     let newUrl = urlPeticion + urlParameters;
-    console.log(newUrl);
+    
     httpGetAsync(newUrl, imprimir);
-
-}
-
-document.querySelector('.botonBuscar').addEventListener("click", crearUrl);
-
-function imprimir (responseText){
+    
     document.querySelector('.custom-select').value = "Selecciona...";
     document.querySelector('.inputName').value = "";
     document.querySelector('.inputCode').value = "";
     document.querySelector('.inputMin').value = "";
     document.querySelector('.inputMax').value = "";
-
-
-    let resultado = document.querySelector('.resultados');
-    resultado.innerHTML = "";
-
-    let tabla = document.createElement("TABLE");
-    tabla.setAttribute("id", "myTable");
-    document.querySelector('.resultados').appendChild(tabla);
-
-    let fila = document.createElement("TR");
-    fila.setAttribute("id", "myTrHeader");
-    document.getElementById("myTable").appendChild(fila);
-
-    let celda = document.createElement("TH");
-    let datoCelda = document.createTextNode("Nombre");
-    celda.appendChild(datoCelda);
-    document.getElementById("myTrHeader").appendChild(celda);
-
-    celda = document.createElement("TH");
-    datoCelda = document.createTextNode("Categoría");
-    celda.appendChild(datoCelda);
-    document.getElementById("myTrHeader").appendChild(celda);
-        
-    celda = document.createElement("TH");
-    datoCelda = document.createTextNode("Precio");
-    celda.appendChild(datoCelda);
-    document.getElementById("myTrHeader").appendChild(celda);
-        
-    celda = document.createElement("TH");
-    datoCelda = document.createTextNode("Código");
-    celda.appendChild(datoCelda);
-    document.getElementById("myTrHeader").appendChild(celda);
-
-    for (let index = 0; index < responseText.length; index++) {
-        fila = document.createElement("TR");
-        fila.setAttribute("id", "myTr"+index);
-        document.getElementById("myTable").appendChild(fila);
-
-        celda = document.createElement("TD");
-        datoCelda = document.createTextNode(responseText[index]["name"]);
-        celda.appendChild(datoCelda);
-        document.getElementById("myTr"+index).appendChild(celda);
-
-        celda = document.createElement("TD");
-        datoCelda = document.createTextNode(responseText[index]["category"]);
-        celda.appendChild(datoCelda);
-        document.getElementById("myTr"+index).appendChild(celda);
-        
-        celda = document.createElement("TD");
-        datoCelda = document.createTextNode(responseText[index]["price"]+"€");
-        celda.appendChild(datoCelda);
-        document.getElementById("myTr"+index).appendChild(celda);
-        
-        celda = document.createElement("TD");
-        datoCelda = document.createTextNode(responseText[index]["code"]);
-        celda.appendChild(datoCelda);
-        document.getElementById("myTr"+index).appendChild(celda);
-        
-        
-    }
-   console.log(responseText); 
 }
 
-
+document.querySelector('.botonBuscar').addEventListener("click", crearUrl);
