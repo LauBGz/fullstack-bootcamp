@@ -20,6 +20,8 @@ function httpGetAsync(theUrl, callback)
 
 let urlPeticion = "https://cors-anywhere.herokuapp.com/http://prana-solutions.com/neoland/api/?";
 
+//let {name, bio} = datosUsuarioGithub;
+
 function crearCelda (tipoCelda, nombreCelda, filaCelda){
     let celda = document.createElement(tipoCelda);
     let datoCelda = document.createTextNode(nombreCelda);
@@ -36,8 +38,6 @@ function imprimir (responseText){
         `;
     }else{
         resultado.innerHTML = "";
-
-        console.log(responseText);
 
         let tabla = document.createElement("TABLE");
         tabla.setAttribute("id", "myTable");

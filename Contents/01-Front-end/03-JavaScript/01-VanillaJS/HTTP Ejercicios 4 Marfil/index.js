@@ -47,8 +47,8 @@ function imprimirRepos(datosRepos){
 function imprimir (datosUsuarioGithub){
 
     let usuarioHTML = document.querySelector('.usuario');
-    let name = datosUsuarioGithub["name"];
-    let bio = datosUsuarioGithub["bio"];
+    //Object destructuring
+    let {name, bio} = datosUsuarioGithub;
 
     if (name=== null){
         name = "No info";
@@ -76,7 +76,7 @@ httpGetAsync("https://cors-anywhere.herokuapp.com/https://api.github.com/users/"
 }
 
 document.querySelector('.boton').addEventListener("click", () => {
-    let usuario = document.querySelector('.input').value;
+    const usuario = document.querySelector('.input').value;
     document.querySelector('.datosUsuario').innerHTML = `
     <div class="usuario">
     </div>
