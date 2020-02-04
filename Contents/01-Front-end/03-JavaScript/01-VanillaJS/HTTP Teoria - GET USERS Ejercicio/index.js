@@ -17,7 +17,7 @@ function imprimir(responseText){
     //Creamos una constante con las propiedades del usuario a imprimir
     const {first_name, last_name, avatar, email} = responseText.data;
     //Seleccionamos donde queremos imprimir
-    let html = document.querySelector('.bio').innerHTML;
+    document.querySelector('.bio').innerHTML;
     //Creamos una etiqueta image, con la url del usuario como source y la añadimos al HTML
     let imagen = document.createElement("img");
     imagen.src = avatar;

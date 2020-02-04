@@ -8,12 +8,20 @@
     font-family: arial;
   }
 
-.edit{
+  .infoPersonal{
     position: relative;
-    top: -230px;
-    right: -110px;
-    
- 
+  }
+
+.edit {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    display: block;
+    width: 50px;
+  }
+
+.bio{
+    display: block;
   }
 
 img {
