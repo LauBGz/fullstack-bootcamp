@@ -52,7 +52,7 @@ function imprimir (responseText){
         crearCelda("TH", "Precio", "myTrHeader");
         crearCelda("TH", "Código", "myTrHeader");
 
-        for (let index = 0; index <= responseText.length; index++) {
+        for (let index = 0; index <= responseText.length-1; index++) {
                 fila = document.createElement("TR");
                 fila.setAttribute("id", "myTr"+index);
                 document.getElementById("myTable").appendChild(fila);

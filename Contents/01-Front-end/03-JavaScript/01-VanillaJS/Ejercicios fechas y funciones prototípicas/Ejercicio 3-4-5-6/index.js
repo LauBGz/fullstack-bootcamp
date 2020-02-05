@@ -20,7 +20,6 @@ function anadirElemento(){
         imprimirArray(array);
         document.querySelector('.input').value = "";
     };
-    console.log(array)
 };
 
 //Función para eliminar elemento
@@ -29,7 +28,6 @@ function eliminarElemento(){
     array.splice(indexNumber, 1);
     imprimirArray(array);
     document.querySelector('.numberDelete').value = "0";
-    console.log(array)
 };
 
 
@@ -37,21 +35,20 @@ function eliminarElemento(){
 function revertirElementos(){
     array.reverse();
     imprimirArray(array);
-    console.log(array)
 };
 
 //Función para buscar elementos
 function buscarElemento(){
     let palabra = document.querySelector('.inputPalabra').value;
 
-    if(palabra !== "" || array !== [] ){
+    if(palabra !== "" && array.length > 1 ){
+        console.log("Hola")
         if (array.indexOf(palabra) === "-1"){
             document.querySelector('.array').innerHTML += "False";    
         }else{
             document.querySelector('.array').innerHTML += "True";   
         }
     }
-
     document.querySelector('.inputPalabra').value = "";
 };
 
@@ -64,6 +61,12 @@ document.querySelector('.input').addEventListener("keypress", function(event) {
     }
 });
 
+//Función para borrar array
+function borrarArray(){
+    document.querySelector('.array').innerHTML = "";
+    array = [];
+};
+
 //Evento para eliminar un elemento del array
 document.querySelector('.delete').addEventListener("click", eliminarElemento);
 
@@ -72,3 +75,6 @@ document.querySelector('.reverse').addEventListener("click", revertirElementos);
 
 //Evento para buscar palabra
 document.querySelector('.find').addEventListener("click", buscarElemento);
+
+//Evento para buscar palabra
+document.querySelector('.clear').addEventListener("click", borrarArray);

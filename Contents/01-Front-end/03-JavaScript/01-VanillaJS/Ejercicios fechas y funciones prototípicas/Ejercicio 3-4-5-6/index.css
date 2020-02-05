@@ -15,6 +15,12 @@
 
 }
 
-.btnReverse{
+.btnSecundarios{
     padding-top: 20px;
+    display: flex;
+}
+
+.btnBorrar{
+    overflow: hidden;
+    margin-left:auto;
 }

@@ -1,0 +1,13 @@
+.inputBtn{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+  }
+
+.textoFechaNac{
+  padding-right: 20px;
+}
+
+.mensaje{
+  padding-top: 20px;
+}
