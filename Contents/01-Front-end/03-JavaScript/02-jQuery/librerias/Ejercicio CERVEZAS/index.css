@@ -1,0 +1,20 @@
+.cerveza{
+    border-bottom-color: grey;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+
+h1 {
+ padding-top: 20px;
+}
+
+.imgCerveza{
+    max-height: 200px;
+    border-style: rgb(44, 44, 44) solid 1px;
+    padding-bottom: 10px;
+}
+
+.subtitulos {
+    font-weight: bold;
+}
+

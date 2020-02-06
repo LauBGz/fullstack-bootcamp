@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <button type="button" class="add btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Añadir cerveza
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Rellena los campos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <!--inputs-->
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Imagen cerveza</label>
+                <input type="url" data-clave="imagen" class="input form-control" id="validationCustom01" placeholder="Imagen" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Nombre cerveza</label>
+                <input type="text" data-clave="nombre" class="input form-control" id="validationCustom02" placeholder="Nombre" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Fabricante cerveza</label>
+                <input type="text" data-clave="fabricante" class="input form-control" id="validationCustom02" placeholder="Fabricante" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Fecha</label>
+                <input type="date" data-clave="fecha" class="input form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom04">Lugar</label>
+                <input type="text" data-clave="lugar" class="input form-control" id="validationCustom04" placeholder="Lugar" required>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="validationCustom05">Precio</label>
+                <input type="number" data-clave="precio" class="input form-control" id="validationCustom05" placeholder="Precio" required>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="validationCustom05">Nota</label>
+                <input type="number" data-clave="nota" class="input form-control" id="validationCustom05" placeholder="Nota" required>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+            </div>
+            <!--inputs-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="save btn btn-primary" type="button">Guardar cerveza</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="resultados">
+            
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
