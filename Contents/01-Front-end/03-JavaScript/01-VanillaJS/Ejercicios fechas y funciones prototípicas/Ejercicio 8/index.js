@@ -7,6 +7,7 @@ document.querySelector('.add').addEventListener("click", () => {
     let unixCode = Math.floor(Math.random() * (fechaLimite - fechaActual)) + fechaActual;
     //Creación de la fecha de la muerte a partir del code unix random
     let fechaMuerte = new Date(unixCode);
+    console.log(fechaMuerteEuropea)
     //Texto a mostrar al usuario con el día, mes, año, hora y minutos obtenidos de la fecha
     document.querySelector('.mensaje').innerHTML = `
     Morirás el día ${fechaMuerte.getDate()}/${fechaMuerte.getMonth()+1}/${fechaMuerte.getFullYear()}

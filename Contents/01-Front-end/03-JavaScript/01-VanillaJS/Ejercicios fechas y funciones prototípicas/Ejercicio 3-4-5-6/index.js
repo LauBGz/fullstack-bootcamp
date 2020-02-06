@@ -10,6 +10,8 @@ function imprimirArray(){
     }
 
     arrayHTML.innerHTML += `</p>`;
+
+    console.log(array);
 };
 
 //Función para añadir elemento
@@ -41,9 +43,9 @@ function revertirElementos(){
 function buscarElemento(){
     let palabra = document.querySelector('.inputPalabra').value;
 
-    if(palabra !== "" && array.length > 1 ){
+    if(palabra !== "" && array.length >= 1 ){
         console.log("Hola")
-        if (array.indexOf(palabra) === "-1"){
+        if (array.indexOf(palabra) === -1){
             document.querySelector('.array').innerHTML += "False";    
         }else{
             document.querySelector('.array').innerHTML += "True";   
