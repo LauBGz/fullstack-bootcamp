@@ -3,7 +3,7 @@ let array = []
 
 //Función para imprimir array de tareas
 function imprimirArray(array){
-    //Vacíado del array para imprimir el listado actualizado
+    //Vaciado del array para imprimir el listado actualizado
     $('.resultsList').empty();
     //Impresión de cada elemento en un li asignando un índice diferente a cada botón
     for (let index = 0; index < array.length; index++) {
