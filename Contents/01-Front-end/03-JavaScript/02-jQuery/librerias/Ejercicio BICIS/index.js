@@ -1,43 +1,71 @@
-// function imprimir(respuesta){
-//     let {stations} = respuesta.data;    
-//     for (let index = 0; index < stations.length; index++) {  
-//         let opcionCarga = false;
-//         if(stations[index]["is_charging_station"] === true){
-//             opcionCarga = true;
-//         }
-//         $('.cuerpoTabla').append(`
-//             <tr>
-//                 <td>${stations[index]["station_id"]}</td>
-//                 <td>${stations[index]["num_bikes_available"]}</td>
-//                 <td>${stations[index]["num_docks_available"]}</td>
-//                 <td>${opcionCarga}</td>
-//             </tr>
-//         `);
-//     }
-// };
+let resultados = $('.results');
+
+let estFav = localStorage.getItem("station");
+
+console.log(estFav)
+
+if (estFav !== null) {
+    $('.nav-favs').empty();
+    $('.nav-favs').append(estFav);
+} 
+
+function imprimir(respuesta){
+
+    resultados.empty()
+    
+    resultados.append(`
+        <table>
+                <tr>
+                    <th>ID de la estación</th>
+                    <th>Bicis disponibles</th>
+                    <th>Espacios disponibles</th>
+                    <th>Opción de carga</th>
+                </tr>
+            <tbody class="cuerpoTabla">
+
+            </tbody>
+        </table>
+    `);
+
+    let {stations} = respuesta.data;    
+    for (let index = 0; index < stations.length; index++) {  
+        let opcionCarga = "No";
+        if(stations[index]["is_charging_station"] === true){
+            opcionCarga = "Sí";
+        }
+        $('.cuerpoTabla').append(`
+            <tr>
+                <td>${stations[index]["station_id"]}</td>
+                <td>${stations[index]["num_bikes_available"]}</td>
+                <td>${stations[index]["num_docks_available"]}</td>
+                <td>${opcionCarga}</td>
+            </tr>
+        `);
+    }
+};
 
 
-// $('.askAll').click(function (e) { 
-//     e.preventDefault();
-//     $.ajax({//pasamos un objeto como argumento
-//         "url": "",
-//         "type": "GET", // DELETE: no llevan body.
-//         "success": imprimir //son callbacks con lo cual no es necesario el control de errores
+$('.askAll').click(function (e) { 
+    e.preventDefault();
+    $.ajax({//pasamos un objeto como argumento
+        "url": "https://dataestbicbcn2020.free.beeceptor.com",
+        "type": "GET", // DELETE: no llevan body.
+        "success": imprimir //son callbacks con lo cual no es necesario el control de errores
             
-//             //jQuery detecta el tipo de respuesta y
-//             //hace automaticamente un JSON parse.
-//         ,
-//         "error": function (error) {//son callbacks con lo cual no es necesario el control de errores
-//             console.log(error);
-//         },
-//         "headers": {//es un objeto dentro de otro objeto. Las APIs deciden en muchos casos que
-//             //headers hay que incluir.
-//             "content-type": "application/json",// cuando se hace un post es mejor ponerle esto para
-//             // "X-Requested-With": "'XMLHttpRequest", de ser necesarias cors
-//             //avisar a la API de que se le envía datos en formato X
-//         }
-//     });
-// });
+            //jQuery detecta el tipo de respuesta y
+            //hace automaticamente un JSON parse.
+        ,
+        "error": function (error) {//son callbacks con lo cual no es necesario el control de errores
+            console.log(error);
+        },
+        "headers": {//es un objeto dentro de otro objeto. Las APIs deciden en muchos casos que
+            //headers hay que incluir.
+            "content-type": "application/json",// cuando se hace un post es mejor ponerle esto para
+            // "X-Requested-With": "'XMLHttpRequest", de ser necesarias cors
+            //avisar a la API de que se le envía datos en formato X
+        }
+    });
+});
     
     
 
@@ -107,6 +135,23 @@ function geolocalizar(objeto){
             }
         }
         
-        alert(objeto.data.stations[closest].name);
-        }   
+        resultados.empty()
+    
+        resultados.append(`Estación más cercana: ${objeto.data.stations[closest].name}<button type="button" class="saveFav btn btn-primary btn-xs">Save</button>`)
+
+        $('.saveFav').click(function (e) { 
+            if (typeof(Storage) !== "undefined") {
+                localStorage.setItem("station", objeto.data.stations[closest].name);
+                $('.nav-favs').empty();
+                $('.nav-favs').append(localStorage.getItem("station"));
+                alert("Estación guardada");
+              } else {
+                alert("Sorry, your browser does not support web storage...");
+              }
+        });
+    }   
 }
+
+
+
+
