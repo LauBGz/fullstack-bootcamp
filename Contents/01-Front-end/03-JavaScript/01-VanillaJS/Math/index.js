@@ -14,21 +14,21 @@
 // let arrAzar = changeArray(arrAnimales);
 // console.log(arrAzar);
 
-// let arrAnimales = ["Alpaca","Ballena", "Cebra", "León", "Antílope", "Aguila", "Cabra", "Rata"];
+let arrAnimales = ["Alpaca","Ballena", "Cebra", "León", "Antílope", "Aguila", "Cabra", "Rata"];
 
-// function shuffleArray(array) {
-//     let result = [];
-//     for (let i=0; i < array.length; i++){
-//         let elementoRandom = array[Math.floor(Math.random() * (array.length))];
-//         if (result.indexOf(elementoRandom) === -1){
-//             result.push(elementoRandom)
-//         } else {
-//             i--;
-//         }
-//     }
-//     return result;
-// }
+function shuffleArray(array) {
+    let result = [];
+    for (let i=0; i < array.length; i++){
+        let elementoRandom = array[Math.floor(Math.random() * (array.length))];
+        if (result.indexOf(elementoRandom) === -1){
+            result.push(elementoRandom)
+        } else {
+            i--;
+        }
+    }
+    return result;
+}
 
-// let cambio = shuffleArray(arrAnimales);
+let cambio = shuffleArray(arrAnimales);
 
-// console.log(cambio);
+console.log(cambio);

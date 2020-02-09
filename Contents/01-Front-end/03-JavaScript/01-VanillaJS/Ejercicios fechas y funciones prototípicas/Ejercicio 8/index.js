@@ -7,10 +7,22 @@ document.querySelector('.add').addEventListener("click", () => {
     let unixCode = Math.floor(Math.random() * (fechaLimite - fechaActual)) + fechaActual;
     //Creación de la fecha de la muerte a partir del code unix random
     let fechaMuerte = new Date(unixCode);
-    console.log(fechaMuerteEuropea)
+    //Función para que los números menores de 10 aparezcan con un 0 delante
+    function convertirDosDigitos (numero){
+        if(numero < 10){
+            numero = "0" + numero;
+        }
+        return numero;
+    }
+    
+    let diaMuerte = convertirDosDigitos(fechaMuerte.getDate());
+    let mesMuerte = convertirDosDigitos(fechaMuerte.getMonth()+1);
+    let horaMuerte = convertirDosDigitos(fechaMuerte.getHours());
+    let minutosMuerte = convertirDosDigitos(fechaMuerte.getMinutes());
+  
     //Texto a mostrar al usuario con el día, mes, año, hora y minutos obtenidos de la fecha
     document.querySelector('.mensaje').innerHTML = `
-    Morirás el día ${fechaMuerte.getDate()}/${fechaMuerte.getMonth()+1}/${fechaMuerte.getFullYear()}
-    a las ${fechaMuerte.getHours()}:${fechaMuerte.getMinutes()}.
+    Morirás el día ${diaMuerte}/${mesMuerte}/${fechaMuerte.getFullYear()}
+    a las ${horaMuerte}:${minutosMuerte}.
     `
 });

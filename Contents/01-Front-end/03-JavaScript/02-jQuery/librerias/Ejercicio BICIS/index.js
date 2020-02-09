@@ -2,8 +2,6 @@ let resultados = $('.results');
 
 let estFav = localStorage.getItem("station");
 
-console.log(estFav)
-
 if (estFav !== null) {
     $('.nav-favs').empty();
     $('.nav-favs').append(estFav);
@@ -14,17 +12,19 @@ function imprimir(respuesta){
     resultados.empty()
     
     resultados.append(`
-        <table>
-                <tr>
-                    <th>ID de la estación</th>
-                    <th>Bicis disponibles</th>
-                    <th>Espacios disponibles</th>
-                    <th>Opción de carga</th>
-                </tr>
-            <tbody class="cuerpoTabla">
+        <div class="table-wrapper">
+            <table class="fl-table">
+                    <tr>
+                        <th>ID de la estación</th>
+                        <th>Bicis disponibles</th>
+                        <th>Espacios disponibles</th>
+                        <th>Opción de carga</th>
+                    </tr>
+                <tbody class="cuerpoTabla">
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     `);
 
     let {stations} = respuesta.data;    
@@ -137,7 +137,12 @@ function geolocalizar(objeto){
         
         resultados.empty()
     
-        resultados.append(`Estación más cercana: ${objeto.data.stations[closest].name}<button type="button" class="saveFav btn btn-primary btn-xs">Save</button>`)
+        resultados.append(`
+        <div class="nearestStation">
+            <p>Estación más cercana: ${objeto.data.stations[closest].name} 
+            <button class="saveFav btn btn-warning btn-sm">Favoritas<i class="fa fa-star-o"></i></button></p>
+        <div>
+        `)
 
         $('.saveFav').click(function (e) { 
             if (typeof(Storage) !== "undefined") {

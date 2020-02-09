@@ -4,6 +4,6 @@ document.querySelector('.add').addEventListener("click", () => {
     //Creo un objeto fecha con los datos a día de hoy
     let fechaActual = new Date();
     //Convierto las fechas a unix time y calculo los días pasando de milisegundos a días
-    let diasTranscurridos = (fechaActual.getTime() - fechaNacimiento.getTime()) / 1000 / 60 / 60 / 24;
+    let diasTranscurridos = Math.round((fechaActual.getTime() - fechaNacimiento.getTime()) / 1000 / 60 / 60 / 24);
     document.querySelector('.mensaje').innerHTML = `<p>Naciste hace ${diasTranscurridos} días!</p>`
 });

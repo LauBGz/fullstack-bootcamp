@@ -26,21 +26,18 @@
 
 // setInterval(callback, milisegundos);
 
-let cuenta = 10;
-setInterval(() => {
-    if (cuenta > 0){
-        cuenta--;
-        document.open();
-        document.write(cuenta);
-        document.close();
-    } 
-    if (cuenta === 0){
-        cuenta--;
-        document.open();
-        document.write("Boom");
-        document.close();
-    }
-}, 1000);
-
-
-
+// let cuenta = 10;
+// setInterval(() => {
+//     if (cuenta > 0){
+//         cuenta--;
+//         document.open();
+//         document.write(cuenta);
+//         document.close();
+//     } 
+//     if (cuenta === 0){
+//         cuenta--;
+//         document.open();
+//         document.write("Boom");
+//         document.close();
+//     }
+// }, 1000);

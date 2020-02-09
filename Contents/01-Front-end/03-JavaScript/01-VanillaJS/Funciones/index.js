@@ -104,11 +104,10 @@
 // }
 
 // let strFrase1 = "Hola"
-// let strFrase2 = "mundo."
+// let strFrase2 = "mundo. "
 
-// let strFraseEntera = concatenar(strFrase1, strFrase2)
-
-// document.write(strFraseEntera);
+// let strFraseA = "Pre"
+// let strFraseB = "curso. "
 
 // function  concatenar (string1, string2, dejarEspacio = false){
 //     let result;
@@ -119,6 +118,12 @@
 //     }
 //     return result;
 // }
+
+// let strFraseEntera = concatenar(strFrase1, strFrase2, true);
+// let strPalabraEntera = concatenar(strFraseA, strFraseB);
+
+// document.write(strFraseEntera);
+// document.write(strPalabraEntera);
 
 // function pickOne(arrFrutas, numero){
 //     let result = arrFrutas[numero];
@@ -341,18 +346,17 @@
 // console.log(multiplo);
 
 //Ejercicio 12
-
 // function createString(string){
-//     let threeChar = string.slice(-3);
-//     let newLength = string.length-3;
-//     let restString = string.slice(0, newLength);
-//     let newString = threeChar+restString+threeChar;
+//     let threeChar = "";
+//     for (let i = string.length-3; i < string.length; i++) {
+//         threeChar += string[i]; 
+//     }
+    
+//     let newString = threeChar + string + threeChar;
 //     return newString;
 // }
 
-
-// let newStr = createString("ornitorrinco"); 
-// console.log(newStr);
+// console.log(createString("ratata")); // ataratataata
 
 // function countTimes (string, char){
 //     let numRepeticiones = 0;

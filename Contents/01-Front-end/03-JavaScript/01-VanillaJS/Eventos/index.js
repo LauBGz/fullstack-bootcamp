@@ -106,25 +106,37 @@
 
 // document.querySelector('body').addEventListener('keypress',handler);
 
-let keypressed = event.key;  //outputting the result to the console
-  console.log("The unicode value is: " + keypressed);
+// let keypressed = event.key;  //outputting the result to the console
+//   console.log("The unicode value is: " + keypressed);
 
-function getNumber1(event){
-    let num1 = event.key;
-    console.log(num1, num2, num3);  
-}
+// function getNumber1(event){
+//     let num1 = event.key;
+//     console.log(num1, num2, num3);  
+// }
 
-document.querySelector('#task').addEventListener('keypress',getNumber1);
+// document.querySelector('#task').addEventListener('keypress',getNumber1);
 
-function operation(event){
+// function operation(event){
+//     document.getElementById("task").value = "";
+    
+// }
+
+// document.querySelector('#add').addEventListener('click',operation);
+
+let array = []; 
+
+function addToArray(event){
+    let tarea = document.getElementById("task").value;
+    console.log(tarea);
+    array.push(tarea);
     document.getElementById("task").value = "";
-
 }
 
-document.querySelector('#add').addEventListener('click',operation);
+document.querySelector('#add').addEventListener('click',addToArray);
 
 function clearArray(event){
     array = [];     
+    document.getElementById("listado").innerHTML="";
 }
 
 document.querySelector('#clear').addEventListener('click',clearArray);

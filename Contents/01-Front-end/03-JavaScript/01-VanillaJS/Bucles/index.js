@@ -187,15 +187,15 @@
 // const max_number = 12;
 
 // for (i=1; i <= max_number; i++) {
-
+//     // if(i === 1){
+//     //     document.write(`<p>`+i+` ovejita. </p>`);
+//     // }else{
+//     //     document.write(`<p>`+i+` ovejitas. </p>`);
+//     // }
+    
+//     //Resolución con el operador ternario
 //     let s = (i === 1 ? "" : "s");
 //     document.write(`<p>`+i+` ovejita${s}. </p>`);
-
-//     if(i === 1){
-//         document.write(`<p>`+i+` ovejita. </p>`);
-//     }else{
-//         document.write(`<p>`+i+` ovejitas. </p>`);
-//     }
 // }
 //-----------------------------------------------------------    
 // Ejercicio 8
@@ -280,13 +280,13 @@ for(let i = 0; i < numeroNetflix; i++){
 
 //17 enero - Ejercicio 1 / Parte B
 
-let arrArticulos = [
-    {nombre: "Breaking Bad", tipo: "S", valoracion: "4"},
-    {nombre: "Pulp Fiction", tipo: "P", valoracion: "5"},
-    {nombre: "Mision Imposible", tipo: "P", valoracion: "3"},
-    {nombre: "the Walking Dead", tipo: "S", valoracion: "2"},
-    {nombre: "Avatar", tipo: "P", valoracion: "1"}
-];
+// let arrArticulos = [
+//     {nombre: "Breaking Bad", tipo: "S", valoracion: "4"},
+//     {nombre: "Pulp Fiction", tipo: "P", valoracion: "5"},
+//     {nombre: "Mision Imposible", tipo: "P", valoracion: "3"},
+//     {nombre: "the Walking Dead", tipo: "S", valoracion: "2"},
+//     {nombre: "Avatar", tipo: "P", valoracion: "1"}
+// ];
 
 // document.write(`<h2>Series</h2>`);
 
@@ -349,25 +349,25 @@ let arrArticulos = [
 
 //17 enero - Ejercicio 2
 
- const articulos = arrArticulos;
- let artHtml = [];
- let artCsv = [];
+//  const articulos = arrArticulos;
+//  let artHtml = [];
+//  let artCsv = [];
 
- console.log(articulos);
+//  console.log(articulos);
 
- let strFormato = prompt("Formato de Exportación (HTML o CSV):");
+//  let strFormato = prompt("Formato de Exportación (HTML o CSV):");
 
- if (strFormato === "HTML") {
-    for (let i = 0; i < articulos.length; i++){
-        artHtml.push(`<tr><td>`+articulos[i]["nombre"]+`</td><td>`+articulos[i]["tipo"]+`</td><td>`+articulos[i]["valoracion"]+`</td></tr>`); 
-    }
-    document.write(`<table><tr><td>Artículo</td><td>Tipo</td><td>Valoración</td></tr>`+artHtml+`</table>`);
-} else {
-    for (let i = 0; i < articulos.length; i++){
-        artCsv.push(`<div>`+articulos[i]["nombre"]+`;`+articulos[i]["tipo"]+`;`+articulos[i]["valoracion"]+`;</div>`); 
-    }
-    document.write(`<div>Artículo;Tipo;Valoración</div>`+artCsv);
-}
+//  if (strFormato === "HTML") {
+//     for (let i = 0; i < articulos.length; i++){
+//         artHtml.push(`<tr><td>`+articulos[i]["nombre"]+`</td><td>`+articulos[i]["tipo"]+`</td><td>`+articulos[i]["valoracion"]+`</td></tr>`); 
+//     }
+//     document.write(`<table><tr><td>Artículo</td><td>Tipo</td><td>Valoración</td></tr>`+artHtml+`</table>`);
+// } else {
+//     for (let i = 0; i < articulos.length; i++){
+//         artCsv.push(`<div>`+articulos[i]["nombre"]+`;`+articulos[i]["tipo"]+`;`+articulos[i]["valoracion"]+`;</div>`); 
+//     }
+//     document.write(`<div>Artículo;Tipo;Valoración</div>`+artCsv);
+// }
 
 
 

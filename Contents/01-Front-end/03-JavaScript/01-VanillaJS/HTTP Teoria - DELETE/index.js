@@ -11,11 +11,11 @@ function httpDeleteAsync(theUrl, callback)
 }
 
 
-// function imprimir(responseText){
-//     let respuesta = JSON.parse(responseText);
-//     console.log(respuesta);    
+function imprimir(responseText){
+    let respuesta = JSON.parse(responseText);
+    console.log(respuesta);    
 
-// }
+}
 
 document.querySelector('.boton').addEventListener("click", () => {
     httpDeleteAsync("https://reqres.in/api/users/2", imprimir);

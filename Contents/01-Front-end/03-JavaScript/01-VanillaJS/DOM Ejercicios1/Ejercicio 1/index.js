@@ -15,11 +15,15 @@ const textoES = {
 }
 
 function Traducir(event){
-  let fragmento =  Object.keys(textoES);
-  fragmento.forEach(function(elemento){
-          document.querySelector('.' + elemento).textContent= textoES[elemento];
-      
-      })
-  }  
+  let elementosATraducir =  Object.keys(textoES);
+  elementosATraducir.forEach(function(elementoATraducir){
+    let elementosHTML = document.querySelectorAll('.' + elementoATraducir); 
+
+    for (const elementoDelHTML of elementosHTML) {
+      elementoDelHTML.textContent = textoES[elementoATraducir]
+    }
+
+  })
+}  
 
 document.querySelector('.traductor').addEventListener('click', Traducir);

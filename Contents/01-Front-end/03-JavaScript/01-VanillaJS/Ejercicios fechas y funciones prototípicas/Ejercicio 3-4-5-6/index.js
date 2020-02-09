@@ -42,9 +42,8 @@ function revertirElementos(){
 //Función para buscar elementos
 function buscarElemento(){
     let palabra = document.querySelector('.inputPalabra').value;
-
-    if(palabra !== "" && array.length >= 1 ){
-        console.log("Hola")
+    //Si la palabra a buscar no existe o el array está vacío no devuelve nada
+    if(palabra !== undefined && array.length >= 1 ){
         if (array.indexOf(palabra) === -1){
             document.querySelector('.array').innerHTML += "False";    
         }else{
