@@ -1,0 +1,21 @@
+.titulo{
+    text-align: center;
+    padding: 10px;
+}
+
+.card{
+    margin-bottom: 25px ;
+    text-align: center;
+}
+
+.nombre {
+    font-weight: bold;
+    color: rgb(75, 74, 74);
+}
+
+.contador{
+  font-size: 30px;
+}
+.contador, .btn2{
+    margin-left: auto;
+}
