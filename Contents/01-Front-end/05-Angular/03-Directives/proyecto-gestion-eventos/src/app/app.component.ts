@@ -49,6 +49,7 @@ export class AppComponent {
     this.listadoDeEventosProgramados.splice(indice, 1)
   }
 
+
   // validarParticipantes(indice:number){
   //   let numParticipantesPorUsuario: number = parseInt((<HTMLInputElement>document.querySelector('.numParticipantes'+indice)).value);
   //   if(numParticipantesPorUsuario > this.listadoDeEventosProgramados[indice]["numMaxParticipantes"]){
@@ -58,14 +59,21 @@ export class AppComponent {
   //   }
   // }
 
+  estilosError:Object = {
+    "color": "red",
+    "font-weight": "bold"
+  }
+
+
   validarParticipantes(indice:string, event:any){
-    var target = event.target || event.srcElement || event.currentTarget;
-    let valorParticipante: string = target.value
+    
+    let target = event.target || event.srcElement || event.currentTarget;
+    let valorParticipante: string = target.value;
     if(valorParticipante > this.listadoDeEventosProgramados[indice]["numMaxParticipantes"]){
       alert('introduce el numero correcto');
-      target.focus()
     }
-    event.preventDefault();
+    
+    event.preventDefault();    
   }
 
   insertarEvento(){
@@ -83,6 +91,9 @@ export class AppComponent {
     this.listadoDeEventosProgramados.push(nuevoEventoProgramado);
   
   }
+
+  
+
 }
 
 

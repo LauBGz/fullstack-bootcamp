@@ -1,0 +1,77 @@
+.bg-navbarMain{
+    background-color:  #4eb5fa;
+}
+.buscador {
+    margin-right: auto;
+   
+}
+
+.buscadorInput{
+    padding-left: 40px;
+}
+
+.inputBuscador {
+    width: 400px;
+}
+
+.dropSearch{
+    background-color: white;
+    border-radius: 3px;
+    border: solid 1px rgb(230, 229, 229);
+    border-left: none;
+    color: grey;
+}
+
+.dropSearch, .btn-dark, input::placeholder{
+    font-size: 14px;
+}
+
+.cartDollar{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+ .textDollar, .textCart{
+    font-size: 12px;
+    
+}
+
+ .btn-dark{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.fa, .fas {
+    font-size: 26px;
+    color: white;
+}
+
+.heart{
+    border-left: solid 1px #1d84b5;;
+    border-right: solid 1px #1d84b5;;
+}
+
+.cart{
+    height: 20px;
+}
+
+.textDollar, .textCart{
+    color: white;
+}
+
+.iconosCompra{
+    height: 30px;
+}
+
+.iconoCompra{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.badgeIcon{
+    margin-bottom: auto;
+    padding-left: 10px;
+}
+
+.badge{
+    background-color: #1d84b5;
+}

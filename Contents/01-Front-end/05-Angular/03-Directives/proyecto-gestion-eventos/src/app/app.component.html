@@ -15,20 +15,20 @@
     <div class="col-md-3">
       <form>
         <div class="form-group">
-          <input type="date" class="fecha form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Fecha inicio">      
+          <input type="date" class="fecha form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Fecha inicio">      
         </div>
         <div class="form-group">
-          <input type="email" class="email form-control" id="exampleInputPassword1" placeholder="Email facilitador">
+          <input type="email" class="email form-control" id="exampleInputPassword2" placeholder="Email facilitador">
         </div>
       </form>
     </div>
     <div class="col-md-2">
       <form>
         <div class="form-group">
-          <input type="time" class="hora form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Hora inicio">      
+          <input type="time" class="hora form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Hora inicio">      
         </div>
         <div class="form-group">
-          <input type="number" class="maxParticipantes form-control" id="exampleInputPassword1"  placeholder="Max participantes">
+          <input type="number" class="maxParticipantes form-control" id="exampleInputPassword3"  placeholder="Max participantes">
         </div>
       </form>
     </div>
@@ -43,23 +43,49 @@
   </div>
   <hr>
   <h2>LISTA DE EVENTOS</h2>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">EVENTO</th>
         <th scope="col">INICIO</th>
         <th scope="col">FACILITADOR</th>
         <th scope="col"></th> 
+        <th scope="col"></th> 
+        <th scope="col"></th> 
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
+      <tr [ngStyle]="estilosError" *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
         <td>{{eventoProgramado["titulo"]}}</td>
         <td>{{eventoProgramado["fechaInicio"]}} {{eventoProgramado["hora"]}}</td>
         <td>{{eventoProgramado["nombreFacilitador"]}}</td>
-        <td>LUPA</td>
+        <td><i class="fas fa-search-plus btn" data-toggle="modal" [attr.data-target]="'#exampleModal' + i" style="font-size: 2rem;"></i></td>
         <td><input (blur)="validarParticipantes(i, $event)" type="text" class="numParticipantes" placeholder="Num participantes"></td>
-        <td><button (click)="borrar(i)">BORRAR</button></td>
+        <td><button (click)="borrar(i)" type="button" class="btn btn-warning">BORRAR</button></td>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{eventoProgramado["titulo"]}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>{{eventoProgramado["descripcion"]}}</p>
+                <h4>{{eventoProgramado["fechaInicio"]}} - {{eventoProgramado["hora"]}}</h4>
+                <h5>{{eventoProgramado["nombreFacilitador"]}}</h5>
+                <p>{{eventoProgramado["email"]}}</p>
+                <p>Número máximo de participantes: {{eventoProgramado["numMaxParticipantes"]}}</p>
+                <p>Número de inscritos: {{eventoProgramado["numActualParticipantes"]}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </tr>
     </tbody>
   </table>

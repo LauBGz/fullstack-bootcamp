@@ -1,0 +1,11 @@
+.card{
+    vertical-align: auto;
+}
+.card-body{
+    background-color: rgb(235, 114, 114);
+}
+
+.alert{
+    min-width: 300px;
+    min-height: 200px;
+}
