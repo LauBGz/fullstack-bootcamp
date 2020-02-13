@@ -2,13 +2,13 @@ let año:number = 1;// No se debe reasignar el tipo de dato año:string = "uno";
 
 //Los tipos de datos son los mismos que javascript
 
-//Array y tupla
+//Array: puede tener el largo que sea y tiene el mismo tipo da datos
 
 let miArray:string[] = ["hola", "mundo"]; //tipo de dato
 
 let miArray2:number[] = [1, 2];
 
-//Tupla: lista en matemáticas. No debe ser muy largo.
+//Tupla: lista en matemáticas. Contiene diferentes tipos de datos y debe ser corto 
 
 let miArray3:[number, string] = [1, "mundo"];//Tupla
 

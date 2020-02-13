@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>GESTIÓN DE EVENTOS</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+      <form>
+        <div class="form-group">
+          <input type="text" class="titulo form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Titulo">     
+        </div>
+        <div class="form-group">
+          <input type="text" class="facilitador form-control" id="exampleInputPassword1" placeholder="Facilitador">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <form>
+        <div class="form-group">
+          <input type="date" class="fecha form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Fecha inicio">      
+        </div>
+        <div class="form-group">
+          <input type="email" class="email form-control" id="exampleInputPassword1" placeholder="Email facilitador">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2">
+      <form>
+        <div class="form-group">
+          <input type="time" class="hora form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Hora inicio">      
+        </div>
+        <div class="form-group">
+          <input type="number" class="maxParticipantes form-control" id="exampleInputPassword1"  placeholder="Max participantes">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <textarea class="descripcion form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Descripción"></textarea>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <button (click)="insertarEvento()" type="button" class="btn btn-success">Insertar</button>
+     </div>
+  </div>
+  <hr>
+  <h2>LISTA DE EVENTOS</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">EVENTO</th>
+        <th scope="col">INICIO</th>
+        <th scope="col">FACILITADOR</th>
+        <th scope="col"></th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
+        <td>{{eventoProgramado["titulo"]}}</td>
+        <td>{{eventoProgramado["fechaInicio"]}} {{eventoProgramado["hora"]}}</td>
+        <td>{{eventoProgramado["nombreFacilitador"]}}</td>
+        <td>LUPA</td>
+        <td><input (blur)="validarParticipantes(i, $event)" type="text" class="numParticipantes" placeholder="Num participantes"></td>
+        <td><button (click)="borrar(i)">BORRAR</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+</div>

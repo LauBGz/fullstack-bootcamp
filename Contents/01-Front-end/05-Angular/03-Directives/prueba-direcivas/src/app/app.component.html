@@ -1,0 +1,49 @@
+<!-- <h1 *ngIf="debeMostrarse">Hola Mundo</h1>
+
+<button (click)="ocultar()">Ocultar texto</button>
+
+<button (click)="mostrar()">Mostrar texto</button>
+
+<button (click)="toggle()">{{reaparecer}}</button> -->
+
+
+<!-- <p *ngFor="let libro of libros; let i = index">
+   {{libro}}
+</p> -->
+
+<!-- <button (click)="eliminarUltimoLibro()">Eliminar el último</button>
+<button (click)="invertir()">Invertir</button> -->
+
+<!-- Escribe un libro: <input class="libroUsuario">
+<button (click)="addLibro()">Añadir libro</button>  -->
+
+<!-- Escribe un color: <input type="color" class="colorUsuario">
+
+<p [ngStyle]="estilos">Adiós mundo</p>
+
+<button (click)="cambiarColor()">Cambiar color</button> -->
+<!-- 
+<button 
+(click)="cambiarClases()"
+[ngClass]="misClases">
+Zas en toda la boca</button> -->
+<!-- 
+3 botones: verde rojo azul -->
+
+<div class="container">
+  <div [ngClass]="misClases">
+    This is a secondary alert—check it out!
+  </div>
+</div>
+
+<button 
+(click)="cambiarClases('alert-primary')"
+type="button" class="btn btn-primary">Azul</button>
+
+<button 
+(click)="cambiarClases('alert-success')"
+type="button" class="btn btn-success">Verde</button>
+
+<button 
+(click)="cambiarClases('alert-danger')"
+type="button" class="btn btn-danger">Rojo</button>
