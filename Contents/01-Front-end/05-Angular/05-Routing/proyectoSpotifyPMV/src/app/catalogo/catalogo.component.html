@@ -1,0 +1,14 @@
+<body>
+  <app-navbar></app-navbar>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <ul *ngFor="let cancion of catalogoCancionesFiltradas; let i = index" class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a class="songs" routerLink="{{cancion.URL}}" target="_blank">{{cancion["titulo"]}} - {{cancion["autor"]}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+

@@ -1,0 +1,17 @@
+.red-square {
+    background-color: rgb(240, 185, 182);
+    width: 600px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+  }
+
+.textos{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+}
