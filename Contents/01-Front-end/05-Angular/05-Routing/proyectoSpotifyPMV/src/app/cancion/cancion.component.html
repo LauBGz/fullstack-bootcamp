@@ -1,3 +1,19 @@
-<audio controls>
-  <source src="{{cancionesDatos[indiceCancion].archivo}}" type="audio/mpeg">
-</audio>
+<body>
+  <app-navbar></app-navbar>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="card">
+        <p class="song-text">Playing song: {{cancionesDatos[indiceCancion].titulo}} - {{cancionesDatos[indiceCancion].autor}}</p>
+        <div class="card-body">
+          <div class="wrap-reproductor">
+            <div class="reproductor d-flex justify-content-center">
+              <audio controls>
+                <source src="{{cancionesDatos[indiceCancion].archivo}}" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

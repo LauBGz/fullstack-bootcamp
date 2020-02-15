@@ -12,18 +12,22 @@ export class CancionComponent{
   cancionesDatos: object[] = [
     {
     "titulo": "I Walk The Line", 
+    "autor": "Johnny Cash",
     "archivo": "/assets/audio/I_walk_the_line.mp3",
     },
     {
     "titulo": "Miña terra galega", 
+    "autor": "Siniestro Total",
     "archivo": "/assets/audio/Miña_terra_galega.mp3"
     },
     {
     "titulo": "Mr. Brightside", 
+    "autor": "The Killers",
     "archivo": "/assets/audio/Mr._Brightside.mp3"
     },
     {
     "titulo": "Seize the day", 
+    "autor": "Avenged Sevenfold",
     "archivo": "/assets/audio/Seize_The_Day.mp3"
     },
   ];
