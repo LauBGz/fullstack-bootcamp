@@ -55,8 +55,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr [ngStyle]="estilosError" *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
-        <td>{{eventoProgramado["titulo"]}}</td>
+      <tr *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
+        <span [ngStyle]="estilosError">
+        <td>{{eventoProgramado["titulo"]}}</td></span>
         <td>{{eventoProgramado["fechaInicio"]}} {{eventoProgramado["hora"]}}</td>
         <td>{{eventoProgramado["nombreFacilitador"]}}</td>
         <td><i class="fas fa-search-plus btn" data-toggle="modal" [attr.data-target]="'#exampleModal' + i" style="font-size: 2rem;"></i></td>

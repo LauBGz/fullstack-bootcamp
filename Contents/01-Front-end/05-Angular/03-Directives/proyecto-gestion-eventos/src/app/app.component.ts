@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {EventoProgramado}  from '../app/model/eventoProgramado';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -88,11 +89,24 @@ export class AppComponent {
     
     let nuevoEventoProgramado = new EventoProgramado(fecha, hora, titulo, descripcion, facilitador, email, maxPar, participantes);
     
-    this.listadoDeEventosProgramados.push(nuevoEventoProgramado);
-  
+    this.listadoDeEventosProgramados.push(nuevoEventoProgramado);  
+    
+    let eventoPasado:boolean;
+    this.calcularSiEventoPasado(fecha);
   }
+    
+  calcularSiEventoPasado(fechaEventoUsuario:string){
+    let eventoPasado = false;
+    let fechaActualUnix = new Date().getTime();
+    let fechaEvento = new Date(fechaEventoUsuario);
+    let fechaEventoUnix = fechaEvento.getTime();
+    let diferenciaFechas = fechaEventoUnix-fechaActualUnix;
+    if(diferenciaFechas <= 0){
+      eventoPasado = true;
+    }    
+    console.log(eventoPasado);
 
-  
+    }
 
 }
 
