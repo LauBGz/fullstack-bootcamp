@@ -1,4 +1,36 @@
 .bg-navbarSide{
     background-color: #5ebefe;
     color: white;
+    min-width: 300px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.nav-link{
+    color: white;
+}
+
+.dropdown-menu{
+    min-width: 300px;
+    margin-left: -10px;
+    margin-top: 0px;
+}
+
+.d-flex{
+    border-bottom: rgb(207, 204, 204) solid 1px;
+}
+
+.dropdown-item{
+    font-size: 14px;
+   
+}
+
+.icon{
+    margin-right: 10px;
+    
+}
+
+.bd-highlight{
+    padding-top: 0px;
+    padding-bottom: 4px ;
 }

@@ -1,6 +1,10 @@
 .bg-navbarMain{
     background-color:  #4eb5fa;
-    padding-bottom: 10px;
+  
+}
+
+.nav-item{
+    padding-right: 20px;
 }
 
 .nav-link{
