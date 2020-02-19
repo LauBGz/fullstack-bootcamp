@@ -1,0 +1,15 @@
+<!-- <p>{{_data.datosPeriodicos["articles"][0]["title"]}}</p> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"  *ngFor="let titular of _data.datosPeriodicos['articles']; let i = index">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{_data.getDatos(i,'urlToImage')}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{_data.getDatos(i,"title")}}</h5>
+                        <p class="card-text">{{_data.getDatos(i,'description')}}</p>
+                        <a routerLink="/articulo/{{i}}" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
