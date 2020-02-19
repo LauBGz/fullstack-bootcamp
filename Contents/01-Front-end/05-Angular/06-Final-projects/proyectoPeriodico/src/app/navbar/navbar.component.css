@@ -1,0 +1,10 @@
+.navbar-light{
+    border-bottom: solid black 2px;
+    padding: 0px;
+    margin-bottom: 50px;
+}
+
+.btn-outline-success{
+    color: black;
+    border-color: black;
+}

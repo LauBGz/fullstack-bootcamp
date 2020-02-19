@@ -1,0 +1,7 @@
+h1, .card{
+    margin-bottom: 25px;
+    
+}
+
+.card:hover {background: #ddd;}
+
