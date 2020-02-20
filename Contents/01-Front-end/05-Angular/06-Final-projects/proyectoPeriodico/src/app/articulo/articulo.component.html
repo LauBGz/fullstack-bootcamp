@@ -4,13 +4,13 @@
             <div class="card">
                 <div class="card-header">
                   Last news
-                </div>
+                </div>  
                 <div class="card-body">
                     <h5 class="card-title">{{_data.getDatos(id,"title")}}</h5>
                     <p class="font-italic">{{_data.getDatos(id,"author")}}</p>
                     <img class="img-fluid" src="{{_data.getDatos(id,'urlToImage')}}">
                     <p class="card-text">{{_data.getDatos(id,'content')}}</p>
-                    <button type="button" class="btn btn-success">Leer más</button>
+                    <a href="{{_data.getDatos(id,'url')}}" target= "_blank" rel="noopener noreferrer"><button type="button" class="btn btn-success">Read more</button></a>
                 </div>
             </div>
         </div>

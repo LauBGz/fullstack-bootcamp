@@ -10,10 +10,9 @@ import { DataPeriodicosService } from '../servicios/data-periodicos.service';
 export class TitularesComponent {
 
   //titularesPeriodico: object[] =  this._data.getDatosPeriodicos();
-
+  
   constructor(public _data: DataPeriodicosService) { 
-    
+  
   }
-
 
 }

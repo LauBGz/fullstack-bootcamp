@@ -1,8 +1,7 @@
 <nav class="navbar navbar-light">
     <a routerLink="/home" class="navbar-brand"><i class="fa fa-home"></i></a>
-    <!-- <i class="fa fa-search navbar-brand"></i> -->
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form name="miFormulario" #busqueda= "ngForm" (submit)="OnInput()" class="form-inline">
+      <input name="miInput" class="form-control mr-sm-2" #search="ngModel" [(ngModel)]="textoBusqueda" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
     </form>
-</nav>
+</nav>    

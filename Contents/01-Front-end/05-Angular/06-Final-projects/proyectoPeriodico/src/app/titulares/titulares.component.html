@@ -1,19 +1,19 @@
 <!-- <p>{{_data.datosPeriodicos["articles"][0]["title"]}}</p> -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1>Animal's news of the day</h1>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+            <h1>Animal's news of the day</h1>
         </div>
-        <div class="row">
-            <div class="col-md-4"  *ngFor="let titular of _data.datosPeriodicos['articles']; let i = index">
-                <div routerLink="/articulo/{{i}}" class="card">
-                    <img src="{{_data.getDatos(i,'urlToImage')}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{_data.getDatos(i,"title")}}</h5>
-                        <p class="card-text">{{_data.getDatos(i,'description')}}</p>
-                    </div>
+    </div>
+    <div class="row" *ngIf="_data.datosPeriodicos !== undefined">
+        <div class="col-md-4"  *ngFor="let titular of _data.datosPeriodicos['articles']; let i = index">
+            <div routerLink="/articulo/{{i}}" class="card">
+                <img src="{{_data.getDatos(i,'urlToImage')}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{_data.getDatos(i,"title")}}</h5>
+                    <p class="card-text">{{_data.getDatos(i,'description')}}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>

@@ -9,6 +9,7 @@ import { TitularesComponent } from './titulares/titulares.component';
 import { ArticuloComponent } from './articulo/articulo.component';
 import { DataPeriodicosService } from './servicios/data-periodicos.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import {FormsModule} from '@angular/forms';
 
 const RouterConfig: Routes = [
   {"path": "", "component": TitularesComponent},
@@ -27,7 +28,8 @@ const RouterConfig: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(RouterConfig, {useHash: true}),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataPeriodicosService],
   bootstrap: [AppComponent]
