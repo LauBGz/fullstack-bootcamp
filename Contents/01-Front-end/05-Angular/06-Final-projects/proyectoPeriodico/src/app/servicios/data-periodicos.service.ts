@@ -41,18 +41,15 @@ export class DataPeriodicosService {
        this.loadNews();
         
       } else{
-        console.log("hola")
         this.datosPeriodicos = [];
 
-        for(let i=0; this.datosPeriodicosBase["articles"].length; i++){
+        for(let i=0; i < this.datosPeriodicosBase["articles"].length; i++){
           let articulo = this.datosPeriodicosBase["articles"][i];
           let encontradoNombre = articulo["title"].toLowerCase().indexOf(textoBusqueda) !== -1;
           let encontradoDescription = articulo["description"].toLowerCase().indexOf(textoBusqueda) !== -1;
 
           if (encontradoNombre || encontradoDescription) {
-            
             this.datosPeriodicos.push(articulo);
-
           }
         }
       }
