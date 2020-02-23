@@ -1,0 +1,174 @@
+<div class="container">
+  <!-- Crear nuevo usuario -->
+  <div class="row d-flex justify-content-end">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    + Add New Employee
+    </button>
+    <!-- Inicio modal para crear nuevo usuario -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create employee</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form name="encuestaNeo" #miEncuesta="ngForm" (ngSubmit)="miEncuesta.form.valid && submitData()" >
+              <label for="FirstName">Name *</label>
+              <br>
+              <input type="text" name="FirstName" #inputPregunta1="ngModel" [(ngModel)]="formData['FirstName']" minlength="" maxlength="" required>
+              <br>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+        ​      <br>
+              <label for="SecondName">Second name *</label>
+              <br>
+              <input type="text" name="SecondName" #inputPregunta2="ngModel" [(ngModel)]="formData['SecondName']" minlength="" maxlength="" required>
+              <br>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+        ​      <br>
+              <label for="Departamento">Department *</label>
+              <br>
+              <input type="text" name="Departamento" #inputPregunta3="ngModel" [(ngModel)]="formData['Departamento']" minlength="" maxlength="" required>
+        ​      <br>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+              <br>
+              <label for="Salario">Salario *</label>
+              <br>
+              <input type="text" name="Salario" #inputPregunta4="ngModel" [(ngModel)]="formData['Salario']" minlength="" maxlength="" required>
+              <br>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+              <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+        ​      <br>
+            </form>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick='$(".modal").modal("hide")'>Cerrar</button>
+            <button class="btn btn-success" type="submit" > Crear </button> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin modal para crear nuevo usuario -->
+  </div>
+  <div class="row">
+    <!-- Inicio tabla -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Profile</th>
+          <th scope="col">Name</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Department</th> 
+          <th scope="col">Action</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </tr>
+        <tr *ngFor="let titular of _data.datosEmpleados; let i = index">
+          <td><i class='fas fa-user'></i></td>
+          <td>{{_data.datosEmpleados[i]["FirstName"]}} {{_data.datosEmpleados[i]["SecondName"]}}</td> 
+          <td>{{_data.datosEmpleados[i]["Salario"]}}</td>
+          <td>{{_data.datosEmpleados[i]["Departamento"]}}</td> 
+          <td>
+            <!-- Icono mostrar -->
+            <span class="mr-3"><i  data-toggle="modal" [attr.data-target]="'#exampleModal2' + i" class="fa fa-search"></i></span>
+            <!-- Modal mostrar -->
+            <div class="modal fade" id="exampleModal2{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Employee Data
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div> 
+                  <div class="modal-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">Employee name: {{_data.datosEmpleados[i]["FirstName"]}} {{_data.datosEmpleados[i]["SecondName"]}}</li>
+                      <li class="list-group-item">Employee department: {{_data.datosEmpleados[i]["Departamento"]}}</li>
+                      <li class="list-group-item">Employee salary: {{_data.datosEmpleados[i]["Salario"]}}</li>
+                    </ul>                   
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fin modal mostrar --> 
+            <!-- Icono editar -->
+            <span class="mr-3"><i  data-toggle="modal" [attr.data-target]="'#exampleModal' + i" class="fas fa-pencil-alt"></i></span>
+            <!-- Modal put -->
+            <div class="modal fade" id="exampleModal{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit employee
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div> 
+                  <div class="modal-body">
+                    <form name="encuestaNeo" #miEncuesta="ngForm" (ngSubmit)="miEncuesta.form.valid && submitData()" >
+                      <label for="FirstName">Name *</label>
+                      <br>
+                      <input type="text" name="FirstName" #inputPregunta1="ngModel" [(ngModel)]="formData['FirstName']" minlength="" maxlength="" required>
+                      <br>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+                ​      <br>
+                      <label for="SecondName">Second name *</label>
+                      <br>
+                      <input type="text" name="SecondName" #inputPregunta2="ngModel" [(ngModel)]="formData['SecondName']" minlength="" maxlength="" required>
+                      <br>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+                ​      <br>
+                      <label for="Departamento">Department *</label>
+                      <br>
+                      <input type="text" name="Departamento" #inputPregunta3="ngModel" [(ngModel)]="formData['Departamento']" minlength="" maxlength="" required>
+                ​      <br>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+                      <br>
+                      <label for="Salario">Salario *</label>
+                      <br>
+                      <input type="text" name="Salario" #inputPregunta4="ngModel" [(ngModel)]="formData['Salario']" minlength="" maxlength="" required>
+                      <br>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+                ​      <br>
+                      <label for="Salario">Id *</label>
+                      <br>
+                      <input type="text" name="Id" #inputPregunta5="ngModel" [(ngModel)]="formData['Id']" minlength="" maxlength="" required>
+                      <br>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
+                      <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
+                ​      <br>
+                    </form>                     
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" onclick='$(".modal").modal("hide")'>ENVIAR</button> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Fin modal put -->  
+          <!-- Icono borrar -->
+          <span class="mr-3"><i (click)="borrarEmpleado(i)" class='fas fa-trash-alt'></i></span>
+          </td>     
+        </tr>
+      </tbody>
+</table> 
+</div>
+</div>
