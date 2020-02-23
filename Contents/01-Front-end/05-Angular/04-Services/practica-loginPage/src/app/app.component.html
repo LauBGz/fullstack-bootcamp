@@ -1,0 +1,10 @@
+
+<div *ngIf="!_user.isLogged">
+  <app-login></app-login>
+​
+</div>
+​
+​
+<div *ngIf="_user.isLogged"  class="container text-center p-5">
+  <app-home></app-home>
+</div>
