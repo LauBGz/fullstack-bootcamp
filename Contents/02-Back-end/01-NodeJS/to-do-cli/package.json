@@ -1,0 +1,14 @@
+{
+  "name": "to-do-cli",
+  "version": "1.0.0",
+  "description": "primer proyecto nodejs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LauBGz",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
