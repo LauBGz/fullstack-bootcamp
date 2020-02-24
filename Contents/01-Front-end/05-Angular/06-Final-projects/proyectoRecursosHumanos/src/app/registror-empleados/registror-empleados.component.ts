@@ -24,7 +24,7 @@ export class RegistrorEmpleadosComponent{
 
   actualizarEmpleado(id: any ){
     this._data.actualizarEmpleado(id);
-    console.log(id)
+
   }
 
   submitData(){   //esta funcion envia los datos del formulario
@@ -37,11 +37,11 @@ export class RegistrorEmpleadosComponent{
   }
 
   submitDataUpdated(){   //esta funcion envia los datos del formulario
-    console.log(this.formDataUpdated) // console log de los datos que se van escribiendo en el formulario
+  // console log de los datos que se van escribiendo en el formulario
     alert("Datos Enviados!")
 ​
     this.actualizarEmpleado(this.formDataUpdated)
-    
+    console.log(this.formDataUpdated)
     return true;
   }
 

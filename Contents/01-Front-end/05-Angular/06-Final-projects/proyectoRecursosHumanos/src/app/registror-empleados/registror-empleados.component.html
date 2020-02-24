@@ -1,21 +1,21 @@
 <div class="container">
   <!-- Crear nuevo usuario -->
   <div class="row d-flex justify-content-end">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
     + Add New Employee
     </button>
     <!-- Inicio modal para crear nuevo usuario -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModal1Label" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create employee</h5>
+            <h5 class="modal-title" id="exampleModal1Label">Create employee</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form name="encuestaNeo" #miEncuesta="ngForm" (ngSubmit)="miEncuesta.form.valid && submitData()" >
+            <form name="miEncuesta" #miEncuesta="ngForm" (ngSubmit)="miEncuesta.form.valid && submitData()" >
               <label for="FirstName">Name *</label>
               <br>
               <input type="text" name="FirstName" #inputPregunta1="ngModel" [(ngModel)]="formData['FirstName']" minlength="" maxlength="" required>
@@ -44,11 +44,12 @@
               <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
               <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
         ​      <br>
+              <button type="button" class="btn btn-secondary" onclick='$(".modal").modal("hide")'>Cerrar</button>
+              <button class="btn btn-success" type="submit" > Crear </button> 
             </form>  
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick='$(".modal").modal("hide")'>Cerrar</button>
-            <button class="btn btn-success" type="submit" > Crear </button> 
+          
           </div>
         </div>
       </div>
@@ -80,11 +81,11 @@
             <!-- Icono mostrar -->
             <span class="mr-3"><i  data-toggle="modal" [attr.data-target]="'#exampleModal2' + i" class="fa fa-search"></i></span>
             <!-- Modal mostrar -->
-            <div class="modal fade" id="exampleModal2{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal2{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Employee Data
+                  <h5 class="modal-title" id="exampleModal2Label">Employee Data
                   </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -105,60 +106,61 @@
             </div>
             <!-- Fin modal mostrar --> 
             <!-- Icono editar -->
-            <span class="mr-3"><i  data-toggle="modal" [attr.data-target]="'#exampleModal' + i" class="fas fa-pencil-alt"></i></span>
+            <span class="mr-3"><i  data-toggle="modal" [attr.data-target]="'#exampleModal3' + i" class="fas fa-pencil-alt"></i></span>
             <!-- Modal put -->
-            <div class="modal fade" id="exampleModal{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal3{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Edit employee
+                  <h5 class="modal-title" id="exampleModal3Label">Edit employee
                   </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
                   </div> 
                   <div class="modal-body">
-                    <form name="encuestaNeo" #miEncuesta="ngForm" (ngSubmit)="miEncuesta.form.valid && submitData()" >
+                    <form name="miEncuesta2" #miEncuesta2="ngForm" (ngSubmit)="miEncuesta2.form.valid && submitDataUpdated()" >
                       <label for="FirstName">Name *</label>
                       <br>
-                      <input type="text" name="FirstName" #inputPregunta1="ngModel" [(ngModel)]="formData['FirstName']" minlength="" maxlength="" required>
+                      <input type="text" name="FirstName" #inputPregunta1="ngModel" [(ngModel)]="formDataUpdated['FirstName']" minlength="" maxlength="" required>
                       <br>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
                 ​      <br>
                       <label for="SecondName">Second name *</label>
                       <br>
-                      <input type="text" name="SecondName" #inputPregunta2="ngModel" [(ngModel)]="formData['SecondName']" minlength="" maxlength="" required>
+                      <input type="text" name="SecondName" #inputPregunta2="ngModel" [(ngModel)]="formDataUpdated['SecondName']" minlength="" maxlength="" required>
                       <br>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
                 ​      <br>
                       <label for="Departamento">Department *</label>
                       <br>
-                      <input type="text" name="Departamento" #inputPregunta3="ngModel" [(ngModel)]="formData['Departamento']" minlength="" maxlength="" required>
+                      <input type="text" name="Departamento" #inputPregunta3="ngModel" [(ngModel)]="formDataUpdated['Departamento']" minlength="" maxlength="" required>
                 ​      <br>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
                       <br>
                       <label for="Salario">Salario *</label>
                       <br>
-                      <input type="text" name="Salario" #inputPregunta4="ngModel" [(ngModel)]="formData['Salario']" minlength="" maxlength="" required>
+                      <input type="number" name="Salario" #inputPregunta4="ngModel" [(ngModel)]="formDataUpdated['Salario']" minlength="" maxlength="" required>
                       <br>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
                 ​      <br>
                       <label for="Salario">Id *</label>
                       <br>
-                      <input type="text" name="Id" #inputPregunta5="ngModel" [(ngModel)]="formData['Id']" minlength="" maxlength="" required>
+                      <input type="number" name="id" #inputPregunta5="ngModel" [(ngModel)]="formDataUpdated['id']" minlength="" maxlength="" required>
                       <br>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched">El error esta aquí</p>
                       <p *ngIf="inputPregunta1.invalid && inputPregunta1.touched && inputPregunta1.pristine">Este campo es obligatorio</p>
                 ​      <br>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" onclick='$(".modal").modal("hide")'>ENVIAR</button>
                     </form>                     
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" onclick='$(".modal").modal("hide")'>ENVIAR</button> 
+                    
                   </div>
                 </div>
               </div>
