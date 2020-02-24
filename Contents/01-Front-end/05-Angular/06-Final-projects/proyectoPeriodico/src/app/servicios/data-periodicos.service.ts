@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -7,8 +8,8 @@ import {Observable} from 'rxjs';
 })
 export class DataPeriodicosService {
 
-  public datosPeriodicosBase: any;
-  public datosPeriodicos: any;
+  datosPeriodicosBase: any;
+  datosPeriodicos: object = {"articles": []} ;
 
   constructor(public _http: HttpClient) { 
  
@@ -41,7 +42,7 @@ export class DataPeriodicosService {
        this.loadNews();
         
       } else{
-        this.datosPeriodicos = [];
+        this.datosPeriodicos = {"articles": []} ;
 
         for(let i=0; i < this.datosPeriodicosBase["articles"].length; i++){
           let articulo = this.datosPeriodicosBase["articles"][i];
@@ -49,7 +50,8 @@ export class DataPeriodicosService {
           let encontradoDescription = articulo["description"].toLowerCase().indexOf(textoBusqueda) !== -1;
 
           if (encontradoNombre || encontradoDescription) {
-            this.datosPeriodicos.push(articulo);
+            console.log(this.datosPeriodicos)
+            this.datosPeriodicos["articles"].push(articulo);
           }
         }
       }

@@ -17,7 +17,5 @@ export class NavbarComponent  {
    this._data.filtrar(this.textoBusqueda);
 
  }
-
-
   
 }
