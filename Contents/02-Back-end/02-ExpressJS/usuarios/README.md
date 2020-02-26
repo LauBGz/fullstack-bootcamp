@@ -1,11 +1,10 @@
-**Users**
+**Users register**
 ----
- `Users register and log in.`
+ `Send user data for register.`
 
 * **URL**
 
   `/register`
-  `/login`
 
 * **Method:**
 
@@ -25,22 +24,9 @@
   * **Code:** 200 <br />
     **Content:** `{"message": "Usuario creado como objeto."}`
 
-  `/login`
-  * **Code:** 200 <br />
-    **Content:** `{""message": "Usuario logueado""}`
-
 * **Error Response:**
 
   `/register`
-  * **Code:** <br />
-    **Content:** `{"error": "Has mandado mal el body."}`
-
-  `/login`
-  * **Code:** <br />
-    **Content:** `{"error": "Usuario o contraseña incorrectos."}`
-
-  OR
-
   * **Code:** <br />
     **Content:** `{"error": "Has mandado mal el body."}`
 
@@ -65,6 +51,46 @@
     }
 })
 ```
+
+**Users login**
+----
+ `Send user data for login.`
+
+* **URL**
+
+  `/login`
+
+* **Method:**
+
+ `POST`
+
+*  **URL Params**
+
+   `None`
+
+* **Data Params**
+
+  `{"username":"hola mundo",  "password":"1111111"}`
+
+* **Success Response:**
+
+  `/login`
+  * **Code:** 200 <br />
+    **Content:** `{""message": "Usuario logueado""}`
+
+* **Error Response:**
+
+  `/login`
+  * **Code:** <br />
+    **Content:** `{"error": "Usuario o contraseña incorrectos."}`
+
+  OR
+
+  * **Code:** <br />
+    **Content:** `{"error": "Has mandado mal el body."}`
+
+* **Sample Call:**
+
 ```Javascript
     servidor.post('/login', (req, res) =>{
       if(req.body.username && req.body.password){
@@ -89,7 +115,3 @@
       }
     })
 ```
-
-* **Notes:**
-
-  <_This is where all uncertainties, commentary, discussion etc. can go. I recommend timestamping and identifying oneself when leaving comments here._> 
