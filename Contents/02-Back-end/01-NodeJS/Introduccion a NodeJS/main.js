@@ -1,48 +1,36 @@
-//En node se recomienda importar a la vieja usanza. Usando ES6 pero no la forma
-//de importar de ES6
-const colors = require('colors')//require es iuna función por defecto de node
-const fs = require ('fs')
-const process = require ('process')
+//Una opción
 
-const argumentos = process.argv;//da todos los argumentos de todos los procesos
+// const https = require('https');
+// https.get(
+//     "https://api.chucknorris.io/jokes/random",
+//     (responseAPI) => {
+//         let buffer = "";
+//         //Cada vez que recibo un dato de la API
+//         responseAPI.on('data', (trozoDeInformacion) => {
+//             buffer += trozoDeInformacion;
+//         })
+//         //Cuando haya terminado la respuesta de la API
+//         responseAPI.on('end', ()=>{
+//             console.log(buffer)
+//         })
+//     }
+// )
 
-console.log(argumentos);
+//Con esta librería estoy creando un pequeño servidor.
+//A este servidor le tengo que indicar un determinado puerto.
+//puertos son un numero que se le asigna a los servidors que se estan 
+//ejecutando en una instancia para que no se interrumpan enrtre ellos
+// el rango de puertops abiertos va de 0 - 65.583
 
-function escribir(){
-  fs.writeFile(
-    'data.json',//tipo de archivo
-    JSON.stringify({"tiempo": "soleado"}),//datos dentro del archivo
-    //hay que parsearlo porque es un obj javascript a json pero depende del tipo
-    //puede no hacer falta
-    (error)=>{
-      if (error){//Si hay error que se ejecute el error en la terminal y no siga funcionando
-        throw error
-      }else{
-        console.log("Archivo guardado con éxito".green);
-      }
-    }//callback que recibe como argumento por si hay un error
-  
-  )//sirve para crear archivos. Necesita 3 argumentos.
-}
+//http 80
+//https 443
 
-function leer(){
-  fs.readFile(//sirve para leer el contenido de un archivo del ordenador
-    'data.json',//1º argumento, archivo a leer
-    (error, fileContents)=>{//2º argumento, callback con 2 argumentos
-      if (error){//Si hay error que se ejecute el error en la terminal y no siga funcionando
-        throw error//Siempre hay que añadir el control de error
-      }else{
-        const data = JSON.parse(fileContents);
-        console.log(data);
-      }
-    }
-  )
-}
+//Otra opción
+// const htttp = require('http');
 
-if (argumentos[2] === "--escribir"){
-  escribir();
-}
+// htttp.createServer((request, response)=>{
+//   response.write("Hola Mundo");
+//   response.end()
+// }).listen(3000) //Crea un puerto
 
-if (argumentos[2] === "--leer"){
-  leer();
-}
+//La opción que vamos a usar: ExpressJS
