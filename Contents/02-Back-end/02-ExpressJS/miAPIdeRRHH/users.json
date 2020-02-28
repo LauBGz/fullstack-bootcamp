@@ -1,16 +1,1 @@
-[
-  {
-    "FirstName": "Laura",
-    "SecondName": "GonBar",
-    "Departamento": "JAJAJA",
-    "Salario": "0",
-    "id": "0"
-  },
-  {
-    "FirstName": "Antonella",
-    "SecondName": "Marchetti",
-    "Departamento": "Operation",
-    "Salario": "10",
-    "id": "1"
-  }
-]
+[{"FirstName":"Laura","SecondName":"GonBar","Departamento":"JAJAJA","Salario":"0","id":"0"},{"FirstName":"Antonella","SecondName":"Marchetti","Departamento":"Operation","Salario":"5555555","id":"2"},{"FirstName":"Marcos","SecondName":"Gonzalez","Departamento":"ceo","Salario":"10000000000000","id":"3"},{"FirstName":"David","SecondName":"Suarez","Departamento":"mobile developer","Salario":"10000","id":"4"}]
