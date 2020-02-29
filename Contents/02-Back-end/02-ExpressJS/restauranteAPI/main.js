@@ -27,9 +27,11 @@ servidor.use(cookieParser())
 servidor.use(helmet())
 // servidor.use(isLoggedIn())
 
-//Rutas externas
+//Rutas externas: ponerlas debajo para que haga el body parser primero
 require('./routes/auth')(servidor);
-// require('./routes/crud')(servidor);
+require('./routes/crud')(servidor);
+
+
 
 //Configuración servidor
 servidor.listen(3000, () => {
