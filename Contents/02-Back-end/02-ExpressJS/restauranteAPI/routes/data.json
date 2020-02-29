@@ -1,0 +1,22 @@
+[
+    {
+        "productos": [
+            "paella",
+            "coca-cola"
+        ],
+        "fecha": "28/02/2020",
+        "direccion": "Av. Diagonal, 182",
+        "precio": "20€",
+        "id": "0"
+    },
+    {
+        "productos": [
+            "paella",
+            "coca-cola"
+        ],
+        "fecha": "28/02/2020",
+        "direccion": "Av. Diagonal, 182",
+        "precio": "200€",
+        "id": "1"
+    }
+]

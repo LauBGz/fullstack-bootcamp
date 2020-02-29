@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser');
 //TODO: AÑADIR VALIDACIONES CON EXPRESS
 
 //Importar archivo lockUp
-const lockUpContent = fs.readFileSync('lockUp.json');
+const lockUpContent = fs.readFileSync('./lockup.json');
 const lockUp = JSON.parse(lockUpContent);
 
 //Creamos servidor
