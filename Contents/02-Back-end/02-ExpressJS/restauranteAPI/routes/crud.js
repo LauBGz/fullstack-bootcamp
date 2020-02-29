@@ -4,7 +4,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser');
-// const isLoggedIn = require("./isLoggedIn");
+const { check, validationResult } = require('express-validator');
 //TODO: AÑADIR VALIDACIONES CON EXPRESS
 
 //Creamos servidor
@@ -58,8 +58,19 @@ const lockUp = JSON.parse(lockUpContent);
 
     //Endpoint /crearPedido. Se realizará una llamada POST con toda la información necesaria 
     //para crear un nuevo pedido: + Productos: array de strings + fecha: string + dirección: string + precio: string 
-    servidor.post('/crearPedido', isLoggedIn, (req, res) =>{
-        if(req.body["productos"] && req.body["fecha"] && req.body["direccion"] && req.body["precio"]){
+    servidor.post('/crearPedido', 
+    [
+    check('fecha').isLength({ min: 7 }),
+    check('direccion').isLength({ min: 7 }),
+    check('precio').isNumeric(),
+    ], isLoggedIn, (req, res) =>{
+       if(req.body["productos"][0]){
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.status(422).json({ errors: errors.array() });
+            }
+       
             fs.readFile('data.json', (error, fileContents) => {
             if(error) throw error;      
 
@@ -80,6 +91,7 @@ const lockUp = JSON.parse(lockUpContent);
                 "precio": req.body["precio"],
                 "id": `${idPedido}`
             }
+            
             //Añado al array de usuarios, el nuevo usuario
             data.push(orderData);
             fs.writeFile('data.json', JSON.stringify(data), (error) => {

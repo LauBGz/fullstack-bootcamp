@@ -28,5 +28,23 @@
         "password": "$2b$14$jVi2MUF46hi7tVR9Fcc6D.ow9Twh9wUEDm/XRhMZJLa6Rhm8K1QzO",
         "email": "noconquistasnada@ensalada.com",
         "id": "4"
+    },
+    {
+        "username": "super",
+        "password": "$2b$14$gapaGI8Ca2Icpw53U.HVm.z4xvXD3Qrbyci2o0atBMKwNsbVh.AgC",
+        "email": "@noconquistasnada",
+        "id": "5"
+    },
+    {
+        "username": "mr",
+        "password": "$2b$14$Rg4FCn8/IjCEZnEclusbxeVchwUIH95ofn6NngrDLTmEx4NVP6sCe",
+        "email": "@noconquistasnada",
+        "id": "6"
+    },
+    {
+        "username": "fantastic",
+        "password": "$2b$14$NdqmS5S0X.8watGtTI7tMOvCi6IN9UjmFt./3GHZk7wiLkXZPUhvO",
+        "email": "noconquistasnada@apa.com",
+        "id": "7"
     }
 ]
