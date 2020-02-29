@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser');
 const { check, validationResult } = require('express-validator');
-//TODO: AÑADIR VALIDACIONES CON EXPRESS
 
 //Creamos servidor
 const servidor = express();
@@ -68,7 +67,7 @@ const lockUp = JSON.parse(lockUpContent);
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
-                return res.status(422).json({ errors: errors.array() });
+                return res.status(422).json({ "error": "Invalid data or missing information." });
             }
        
             fs.readFile('data.json', (error, fileContents) => {
@@ -105,15 +104,23 @@ const lockUp = JSON.parse(lockUpContent);
             return;
         }
     })
-    //TODO: AÑADIR VALIDACION POST PEDIDO
 
     // Endpoint /editarPedido. Se realizará una llamada PUT con toda la información necesaria 
     //para modificar un pedido ya existente. + Productos: array de strings + fecha: 
     //string + dirección: string + precio: string + indice: numero → este número indicará la 
     //posición del pedido que hay que modificar dentro del array de todos los pedidos.
-    servidor.put('/editarPedido', isLoggedIn, (req, res) =>{
-    if(req.body["productos"] && req.body["fecha"] && req.body["direccion"] 
-    && req.body["precio"] && req.body["id"]){
+    servidor.put('/editarPedido', 
+    [
+    check('fecha').isLength({ min: 7 }),
+    check('direccion').isLength({ min: 7 }),
+    check('precio').isNumeric(),
+    ], isLoggedIn, (req, res) =>{
+       if(req.body["productos"][0]){
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.status(422).json({ "error": "Invalid data or missing information." });
+            }
         fs.readFile('data.json', (error, fileContents) => {
         if(error) throw error;      
         const data = JSON.parse(fileContents);
@@ -149,7 +156,7 @@ const lockUp = JSON.parse(lockUpContent);
         return;
     }
     })
-    //TODO: AÑADIR VALIDACION PUT PEDIDO
+
     //TODO: NO FUNCIONA!!
 
     //+ Endpoint /eliminarPedido/:indice. Se realizará una llamada DELETE a este endpoint y 
@@ -188,5 +195,4 @@ const lockUp = JSON.parse(lockUpContent);
             }
         })
     });
-    //TODO: AÑADIR VALIDACION DELETE PEDIDO
 };

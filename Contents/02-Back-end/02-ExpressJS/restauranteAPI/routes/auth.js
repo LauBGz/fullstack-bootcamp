@@ -25,7 +25,7 @@ module.exports = function(servidor) {
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array() });
+            return res.status(422).json({ "error": "Invalid data or missing information." });
         }
 
         fs.readFile('users.json', (error, fileContents) => {
@@ -73,8 +73,8 @@ module.exports = function(servidor) {
     })
 
  servidor.post('/login', [
-    // email must be an email
-    check('email').isEmail(),
+    // username must be an email
+    check('username').isLength({ min: 2 }),
     // password must be at least 8 chars long
     check('password').isLength({ min: 8 })
     ], (req, res) => {
@@ -82,9 +82,9 @@ module.exports = function(servidor) {
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array() });
+            return res.status(422).json({ "error": "Invalid data or missing information." });
         }
-        
+
         const userData = {
             "username": req.body["username"],
             "password": req.body["password"]
