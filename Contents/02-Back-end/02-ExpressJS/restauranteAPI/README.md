@@ -181,7 +181,7 @@
 ```Javascript
     servidor.get('/pedido/:id', isLoggedIn, (req, res) => {}
 ```
-//
+
 //
 **Delete order**
 ----

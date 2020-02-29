@@ -109,55 +109,54 @@ const lockUp = JSON.parse(lockUpContent);
     //para modificar un pedido ya existente. + Productos: array de strings + fecha: 
     //string + dirección: string + precio: string + indice: numero → este número indicará la 
     //posición del pedido que hay que modificar dentro del array de todos los pedidos.
-    servidor.put('/editarPedido', 
+    servidor.put('/editarPedido',  
     [
     check('fecha').isLength({ min: 7 }),
     check('direccion').isLength({ min: 7 }),
     check('precio').isNumeric(),
     ], isLoggedIn, (req, res) =>{
        if(req.body["productos"][0]){
+           
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
                 return res.status(422).json({ "error": "Invalid data or missing information." });
             }
-        fs.readFile('data.json', (error, fileContents) => {
-        if(error) throw error;      
-        const data = JSON.parse(fileContents);
-        let orderPosition = -1;
-
-        for (i = 0; i < data.length; i++) {
-            if (data[i]["id"] === req.body["id"]){
-            orderPosition = i;
+          fs.readFile('data.json', (error, fileContents) => {
+            if(error) throw error;      
+            const data = JSON.parse(fileContents);
+            let orderPosition = -1;
+      
+            for (i = 0; i < data.length; i++) {
+              if (data[i]["id"] === req.body["id"]){
+                orderPosition = i;
+              }
             }
-        }
-
-        if (orderPosition > -1){
-            const newOrderData = {
-            "productos": req.body["productos"], 
-            "fecha": req.body["fecha"], 
-            "direccion": req.body["direccion"], 
-            "precio": req.body["precio"],
-            "id": req.body["id"]
+      
+            if (orderPosition > -1){
+              const newOrderData = {
+                "productos": req.body["productos"], 
+                "fecha": req.body["fecha"], 
+                "direccion": req.body["direccion"], 
+                "precio": req.body["precio"],
+                "id": req.body["id"]
+                }
+              data.splice(orderPosition, 1, newOrderData);
+              fs.writeFile('data.json', JSON.stringify(data), (error) => {
+                if (error) throw error;
+                res.send({"message": "Pedido modificado con éxito!"});
+                return;
+              })
+            }else{
+              res.send({"message": "Pedido no encontrado."});
+              return;
             }
-            data.splice(orderPosition, 1, newOrderData);
-            fs.writeFile('data.json', JSON.stringify(data), (error) => {
-            if (error) throw error;
-            res.send({"message": "Pedido modificado con éxito!"});
-            return;
-            })
+          })
         }else{
-            res.send({"message": "Pedido no encontrado."});
-            return;
+          res.send({"message": "Body incorrecto."});
+          return;
         }
-        })
-    }else{
-        res.send({"message": "Body incorrecto."});
-        return;
-    }
-    })
-
-    //TODO: NO FUNCIONA!!
+      })
 
     //+ Endpoint /eliminarPedido/:indice. Se realizará una llamada DELETE a este endpoint y 
     //se eliminará del archivo de datos aquel pedido que se encuentre en la posición :indice 
