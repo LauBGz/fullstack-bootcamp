@@ -17,11 +17,6 @@ const cookieParser = require('cookie-parser');
 //Creamos servidor
 const servidor = express();
 
-//Rutas externas
-require('./routes/auth')(servidor);
-// require('./routes/crud')(servidor);
-
-
 //Importar archivo lockUp
 const lockUpContent = fs.readFileSync('lockUp.json');
 const lockUp = JSON.parse(lockUpContent);
@@ -32,7 +27,9 @@ servidor.use(cookieParser())
 servidor.use(helmet())
 // servidor.use(isLoggedIn())
 
-
+//Rutas externas
+require('./routes/auth')(servidor);
+// require('./routes/crud')(servidor);
 
 //Configuración servidor
 servidor.listen(3000, () => {

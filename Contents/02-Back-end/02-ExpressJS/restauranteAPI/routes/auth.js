@@ -62,15 +62,8 @@ module.exports = function(servidor) {
     return;
     }
     })
-};
-//TODO: AÑADIR VALIDACION POST USUARIO
 
-// Endpoint /login. Se realizará una llamada POST a este endpoint enviando 
-//el username y la password. El servidor comprobará la password y, 
-//si es correcta, enviará al cliente un token de sesión en una cookie. 
-
-module.exports = function(servidor) {
-    servidor.post('/login', (req, res) => {
+ servidor.post('/login', (req, res) => {
         console.log("hola")
         if (req.body["username"] && req.body["username"]) {
             const userData = {
