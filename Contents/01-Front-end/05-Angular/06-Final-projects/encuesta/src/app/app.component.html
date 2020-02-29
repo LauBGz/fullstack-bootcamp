@@ -1,0 +1,84 @@
+<h1>Formularios (template-driven)</h1>
+<form 
+  name="formularioRegistro" 
+  #encuestaSatis="ngForm"
+  (ngSubmit)="encuestaSatis.form.valid && submitData(encuestaSatis)"
+  >
+  <label for="bootcamp">¿Qué Bootcamp estás realizando?</label>
+  <input 
+    type="text" 
+    required
+    name="bootcamp"
+    #bootcamp="ngModel"
+    [(ngModel)]="formData['bootcamp']"
+  >
+
+  <p *ngIf="bootcamp.invalid && bootcamp.touched && bootcamp.pristine">Este campo es obligatorio</p>  
+ 
+  <br><br>
+
+  <label for="startDate">¿Cuándo comenzó el bootcamp?</label>
+  <input 
+  type="date" 
+  required
+  name="startDate" 
+  min="2020-01-01"
+  max="2020-03-01"
+  #startDate="ngModel"
+  [(ngModel)]="formData['startDate']"
+  >
+
+  <p *ngIf="startDate.invalid && startDate.touched && startDate.pristine">Este campo es obligatorio</p>
+
+  <br><br>
+
+  <label for="quantity">¿En una escala del 0 al 5, consideras que estás avanzando al ritmo adecuado?</label>
+  <input 
+  type="number" 
+  required
+  name="quantity" 
+  min="1" 
+  max="5"
+  #quantity="ngModel"
+  [(ngModel)]="formData['quantity']"
+  >
+  <p *ngIf="quantity.invalid && quantity.touched && quantity.pristine">Este campo es obligatorio</p>
+
+  <br><br>
+
+
+  <label for="suggestions">¿Tienes sugerencias? </label>
+  <textarea 
+  name="suggestions"
+  rows="5" 
+  cols="33"
+  maxlength="250"
+  #suggestions="ngModel"
+  [(ngModel)]="formData['suggestions']"
+  >
+  Escribe aquí tus sugerencias
+  </textarea>
+
+  <p *ngIf="suggestions.invalid && suggestions.touched && suggestions.pristine">Este campo es obligatorio</p>
+
+  <br><br>
+
+  <!-- <label for="phone">Indícanos un número de teléfono al que contactarte:</label>
+  <input 
+  type="tel"
+  required 
+  name="telephone"
+  pattern="[0-9]{6}"
+  #inputTelephone="ngModel"
+  [(ngModel)]="formData['telephone']"
+  >
+  <br><br> -->
+
+  <input type="reset">
+  <input type="submit" value="enviar" [disabled]="!encuestaSatis.form.valid"/>
+
+</form>
+
+<!-- <p *ngIf="inputPassword.invalid && inputPassword.dirty">El formato de la contraseña no es el correcto.</p>
+  <p *ngIf="inputPassword.invalid && inputPassword.touched && inputPassword.pristine">Este campo es obligatorio</p>
+   -->
