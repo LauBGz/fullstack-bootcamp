@@ -1,0 +1,19 @@
+INSERT INTO aerolinea.avion
+(FechaCreacion, Modelo, Capacidad)
+VALUES ((CURRENT_TIMESTAMP), "Airbus A380", 600);
+
+INSERT INTO aerolinea.avion
+(FechaCreacion, Modelo, Capacidad)
+VALUES ((CURRENT_TIMESTAMP), "Boeing 737", 200);
+
+INSERT INTO aerolinea.avion
+(FechaCreacion, Modelo, Capacidad)
+VALUES ((CURRENT_TIMESTAMP), "Boeing 747", 530);
+
+INSERT INTO aerolinea.avion
+(FechaCreacion, Modelo, Capacidad)
+VALUES ((CURRENT_TIMESTAMP), "Boeing 747", 530);
+
+INSERT INTO aerolinea.avionavion
+(FechaCreacion, Modelo, Capacidad)
+VALUES ((CURRENT_TIMESTAMP), "WingXin 620", 150);
