@@ -15,7 +15,7 @@ exports.getCiudadanos = (req, res) => {
 }
 
 exports.nuevoCiudadano = (req, res) => {
-    bodyController.checkBody(res, req.body, ["username", "password", "email"])
+    bodyController.checkBody(res, req.body, ["userName", "password", "email"])
 
     ciudadanosModel.listarCiudadanos((error, rows) => {
            //Crearé un usuario
