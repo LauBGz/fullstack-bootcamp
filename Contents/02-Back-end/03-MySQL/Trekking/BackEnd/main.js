@@ -16,11 +16,11 @@ servidor.put('/usuarios', controller.updateUser);
 servidor.delete('/usuario/:id', controller.deleteUser);
 
 //Endpoints caminatas
-// servidor.get('/caminatas', controller.getTrekkings);
-// servidor.get('/caminata/:id', controller.getTrekking);
-// servidor.post('/caminatas', controller.addTrekking);
-// servidor.put('/caminatas', controller.updateTrekking);
-// servidor.delete('/caminata/:id', controller.deleteTrekking);
+servidor.get('/caminatas', controller.getTrekkings);
+servidor.get('/caminata/:id', controller.getTrekking);
+servidor.post('/caminatas', controller.addTrekking);
+servidor.put('/caminatas', controller.updateTrekking);
+servidor.delete('/caminata/:id', controller.deleteTrekking);
 
 //Escuchar servidor
 servidor.listen(3000, () => {

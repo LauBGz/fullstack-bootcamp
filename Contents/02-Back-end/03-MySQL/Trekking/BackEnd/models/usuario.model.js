@@ -1,19 +1,19 @@
 const connection = require('./db.model');
 
-//Obtener caminatas
+//Obtener usuarios
 exports.getAllUsers = (callback) => {
     connection.query(`
     SELECT * FROM trekking.usuario;
     `, callback);
 };
 
-//Obtener un caminata
+//Obtener un usuario
 exports.getAnUser = (id, callback) => {
     connection.query(`
     SELECT * FROM trekking.usuario WHERE id = ${id}`, callback);
 };
 
-//Añadir un caminata
+//Añadir un usuario
 exports.addAnUser = (username, password, fechaInscripcion, email, edad, peso, sexo, callback) => {
     connection.query(`
     INSERT INTO trekking.usuario
@@ -22,7 +22,7 @@ exports.addAnUser = (username, password, fechaInscripcion, email, edad, peso, se
     `, callback);
 };
 
-//Actualizar un caminata
+//Actualizar un usuario
 exports.updateAnUser = (username, password, fechaInscripcion, email, edad, peso, sexo, id, callback) => {
     connection.query(`
     UPDATE trekking.usuario SET 
@@ -33,7 +33,7 @@ exports.updateAnUser = (username, password, fechaInscripcion, email, edad, peso,
     `, callback);
 };
 
-//Eliminar un caminata
+//Eliminar un usuario
 exports.deleteAnUser = (id, callback) => {
     connection.query(`
     DELETE FROM trekking.usuario WHERE id = ${id}`, 
