@@ -14,13 +14,37 @@ exports.getAnUser = (id, callback) => {
 };
 
 
-//Obtener usuarios por email
+//Obtener usuarios por email/usernane
 exports.getUserByEmail = (username, email, callback) => {
     connection.query(`
     SELECT *
     FROM trekking.usuario WHERE email = "${email}" OR username = "${username}"; `, 
     callback);
 };
+
+exports.getUserByUsername = (username, callback) => {
+    connection.query(`
+    SELECT *
+    FROM trekking.usuario WHERE username = "${username}"; `, 
+    callback);
+};
+
+exports.getPasswordByUsername = (username, callback) => {
+    connection.query(`
+    SELECT usuario.password FROM trekking.usuario WHERE username = '${username}';
+     `, 
+    callback);
+};
+
+//Comprobar si usuario y contraseña coinciden
+// exports.compareUserAndPassword = (username, password, callback) => {
+//     connection.query(`
+//     SELECT *
+//     FROM trekking.usuario 
+//     WHERE username = '${username}'
+//     AND password = '${password}';
+//     `, callback);
+// };
 
 //Añadir un usuario
 exports.addAnUser = (username, password, fechaInscripcion, email, edad, peso, sexo, callback) => {

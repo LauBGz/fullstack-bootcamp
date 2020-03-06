@@ -3,7 +3,10 @@
 #GET USUARIOS
 SELECT * FROM trekking.usuario;
 #GET 1 USUARIO
-SELECT * FROM trekking.usuario WHERE id = 1;
+SELECT *
+FROM trekking.usuario
+WHERE email = "adadada@stgo.com"
+OR username = "adadada";
 #POST USUARIO
 INSERT INTO trekking.usuario
 (username, password, fechaInscripcion, email, edad, peso, sexo)
@@ -14,6 +17,13 @@ username = "Laura", password="patatilla", fechaInscripcion="20200305", email="la
 WHERE ID = 1;
 #DELETE USUARIO
 DELETE FROM trekking.usuario WHERE ID = 2;
+
+SELECT *
+FROM trekking.usuario 
+WHERE username = 'Alex'
+AND password = 'ratata';
+
+SELECT usuario.password FROM trekking.usuario = 'Alex';
 
 
 #QUERIES CAMINATAS

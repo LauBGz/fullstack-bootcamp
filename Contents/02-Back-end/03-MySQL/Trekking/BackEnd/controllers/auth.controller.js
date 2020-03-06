@@ -3,6 +3,8 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path =  require('path');
+
+//Importar controller
 const bodyController = require('./body.controller');
 
 //Importar modelo de usuario
@@ -44,9 +46,9 @@ exports.register = (req, res) => {
                     req.body["sexo"],
                     (error, result) => {
                         if (error) {
-                            res.send({"error": error})
+                            res.send({"error": "Body incorrecto."})
                         } else {
-                            res.send({"message": "Ok usuario creado!", "id": result["insertId"]})
+                            res.send({"message": "Usuario creado!", "id": result["insertId"]})
                         }
                     }
                 )
@@ -56,3 +58,39 @@ exports.register = (req, res) => {
 }
 
 //Función para loguear usuario 
+exports.login = (req, res) => {
+
+    bodyController.checkBody(res, req.body, [
+        "username", 
+        "password"]
+        );
+    
+    usuarioModel.getUserByUsername(req.body["username"], (error, result) => {
+        if (result.length === 0) {
+            res.send({"error": "Usuario no existe."});
+        } else {
+            let nombreUsuario = result[0]["username"];
+         
+            usuarioModel.getPasswordByUsername(req.body["username"], (error, result) => {
+                let passUsuario = result[0]["password"];
+
+                bcrypt.compare(req.body["password"], passUsuario, (error, result) => {      
+
+                    if (req.body["username"] === nombreUsuario && result){
+                        jwt.sign({ "username": nombreUsuario }, 
+                        claveJWT["jwt_clave"], (error, token) => {
+                        if (error) throw error;
+    
+                        res.cookie('stamp', token);
+                        res.send({ "message": "Usuario loggeado",
+                                    "token": token})  
+                        //TODO: quitar token antes de deployar 
+                    });
+                    } else {
+                        res.send({ "error": "usuario o contraseña incorrectos" })
+                    } 
+                })
+            })
+        }
+    })       
+}
