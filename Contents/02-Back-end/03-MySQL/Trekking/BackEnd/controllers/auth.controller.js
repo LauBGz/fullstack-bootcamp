@@ -13,7 +13,7 @@ const rutaAbsoluta = path.join(__dirname.replace('controllers', ''),'/config/loc
 const clave = fs.readFileSync(rutaAbsoluta);
 const claveJWT = JSON.parse(clave); 
 
-//Función para autenticación
+//Función para registrar usuario y hashear la contraseña
 exports.register = (req, res) => {
     bodyController.checkBody(res, req.body, [
     "username", 
@@ -29,7 +29,30 @@ exports.register = (req, res) => {
         if (result.length !== 0) {
             res.send({"error": "Usuario ya existe."});
         } else{
-            res.send({"error": "Todo ok."})
+            bcrypt.hash(req.body["password"], 14, (error, hash) => {
+                if (error) throw error;
+                
+                const fechaInscripcion = new Date().toJSON().slice(0,10).replace(/-/g,'');
+
+                usuarioModel.addAnUser(
+                    req.body["username"],
+                    hash,
+                    fechaInscripcion,
+                    req.body["email"],
+                    req.body["edad"],
+                    req.body["peso"],
+                    req.body["sexo"],
+                    (error, result) => {
+                        if (error) {
+                            res.send({"error": error})
+                        } else {
+                            res.send({"message": "Ok usuario creado!", "id": result["insertId"]})
+                        }
+                    }
+                )
+            })
         }
     })
 }
+
+//Función para loguear usuario 
