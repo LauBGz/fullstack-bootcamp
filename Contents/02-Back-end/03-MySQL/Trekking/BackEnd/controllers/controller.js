@@ -8,7 +8,6 @@ exports.getTrekkings = (req, res) => {
     caminataModel.getAllTrekkings((error, rows) => {
         if (error){
             res.status(500).send({"error": error});
-            throw error;
         } else {
             res.send(rows);
         }
@@ -20,7 +19,6 @@ exports.getUsers = (req, res) => {
     usuarioModel.getAllUsers((error, rows) => {
         if (error){
             res.status(500).send({"error": error});
-            throw error;
         } else {
             res.send(rows);
         }
@@ -34,7 +32,6 @@ exports.getUser = (req, res) => {
     usuarioModel.getAnUser(id, (error, rows) => {
         if (rows.length === 0){
             res.status(400).send({"Error": "El ID no existe."});
-            throw error;
         } else {
             res.send(rows);
         }
@@ -48,7 +45,6 @@ exports.getTrekking = (req, res) => {
     caminataModel.getATrekking(id, (error, rows) => {
         if (rows.length === 0){
             res.status(400).send({"Error": "El ID no existe."});
-            throw error;
         } else {
             res.send(rows);
         }
@@ -119,21 +115,18 @@ exports.updateUser = (req, res) => {
     bodyController.checkBody(res, req.body, [
         "id",
         "username", 
-        "password", 
+        "password",
         "email",
         "edad", 
         "peso", 
         "sexo"
     ]);
 
-    const fechaInscripcion = new Date().toJSON().slice(0,10).replace(/-/g,'');
-
     const id =  req.body["id"]
 
     usuarioModel.updateAnUser(
         req.body["username"],
         req.body["password"],
-        fechaInscripcion,
         req.body["email"],
         req.body["edad"],
         req.body["peso"],
@@ -187,7 +180,6 @@ exports.deleteUser = (req, res) => {
     usuarioModel.deleteAnUser(id, (error, rows) => {
         if (rows.length === 0){
             res.status(400).send({"Error": "El ID no existe."});
-            throw error;
         } else {
             res.send({"message": "Usuario eliminado con éxito."});
         }
@@ -201,9 +193,8 @@ exports.deleteTrekking = (req, res) => {
     caminataModel.deleteATrekking(id, (error, rows) => {
         if (rows.length === 0){
             res.status(400).send({"Error": "El ID no existe."});
-            throw error;
         } else {
-            res.send({"message": "Usuario eliminado con éxito."});
+            res.send({"message": "Caminata eliminada con éxito."});
         }
     })
 }

@@ -23,11 +23,11 @@ exports.addAnUser = (username, password, fechaInscripcion, email, edad, peso, se
 };
 
 //Actualizar un usuario
-exports.updateAnUser = (username, password, fechaInscripcion, email, edad, peso, sexo, id, callback) => {
+exports.updateAnUser = (username, password, email, edad, peso, sexo, id, callback) => {
     connection.query(`
     UPDATE trekking.usuario SET 
     username = "${username}", password = "${password}", 
-    fechaInscripcion = ${fechaInscripcion}, email = "${email}", edad = ${edad}, 
+    email = "${email}", edad = ${edad}, 
     peso = ${peso}, sexo = "${sexo}"
     WHERE ID = ${id};
     `, callback);
