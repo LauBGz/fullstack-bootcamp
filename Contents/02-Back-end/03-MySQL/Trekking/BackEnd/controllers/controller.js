@@ -194,7 +194,7 @@ exports.deleteTrekking = (req, res) => {
         if (rows.length === 0){
             res.status(400).send({"Error": "El ID no existe."});
         } else {
-            res.send({"message": "Caminata eliminada con éxito."});
+            res.send({"message": "Caminata eliminada     con éxito."});
         }
     })
 }

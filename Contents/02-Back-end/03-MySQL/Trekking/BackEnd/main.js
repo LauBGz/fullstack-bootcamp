@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');  
 const controller = require('./controllers/controller')
+const authController = require('./controllers/auth.controller')
 
 //Crear servidor
 const servidor = express();
 
 //Middleware
 servidor.use(bodyParser.json());
+
+//Endpoints register y login
+servidor.post('/register', authController.register);
 
 //Endpoints usuarios
 servidor.get('/usuarios', controller.getUsers);

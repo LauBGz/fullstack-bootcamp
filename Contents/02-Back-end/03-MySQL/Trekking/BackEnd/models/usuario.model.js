@@ -13,6 +13,15 @@ exports.getAnUser = (id, callback) => {
     SELECT * FROM trekking.usuario WHERE id = ${id}`, callback);
 };
 
+
+//Obtener usuarios por email
+exports.getUserByEmail = (username, email, callback) => {
+    connection.query(`
+    SELECT *
+    FROM trekking.usuario WHERE email = "${email}" OR username = "${username}"; `, 
+    callback);
+};
+
 //Añadir un usuario
 exports.addAnUser = (username, password, fechaInscripcion, email, edad, peso, sexo, callback) => {
     connection.query(`
