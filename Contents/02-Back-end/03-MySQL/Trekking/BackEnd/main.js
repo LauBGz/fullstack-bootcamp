@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');  
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
-const controller = require('./controllers/controller')
+const userController = require('./controllers/users.controller')
+const trekkingController =  require('./controllers/trekkings.controller')
 const authController = require('./controllers/auth.controller')
 const userLogged = require('./controllers/isLoggedIn.controller')
 
@@ -19,18 +20,18 @@ servidor.post('/register', authController.register);
 servidor.post('/login', authController.login);
 
 //Endpoints usuarios
-servidor.get('/usuarios', userLogged, controller.getUsers);
-servidor.get('/usuario/:id', controller.getUser);
-servidor.post('/usuarios', controller.addUser);
-servidor.put('/usuarios', controller.updateUser);
-servidor.delete('/usuario/:id', controller.deleteUser);
+servidor.get('/usuarios', userLogged, userController.getUsers);
+servidor.get('/usuario/:id', userLogged, userController.getUser);
+servidor.post('/usuarios', userLogged, userController.addUser);
+servidor.put('/usuarios', userLogged, userController.updateUser);
+servidor.delete('/usuario/:id', userLogged, userController.deleteUser);
 
 //Endpoints caminatas
-servidor.get('/caminatas', controller.getTrekkings);
-servidor.get('/caminata/:id', controller.getTrekking);
-servidor.post('/caminatas', controller.addTrekking);
-servidor.put('/caminatas', controller.updateTrekking);
-servidor.delete('/caminata/:id', controller.deleteTrekking);
+servidor.get('/caminatas', userLogged, trekkingController.getTrekkings);
+servidor.get('/caminata/:id', userLogged, trekkingController.getTrekking);
+servidor.post('/caminatas', userLogged, trekkingController.addTrekking);
+servidor.put('/caminatas', userLogged, trekkingController.updateTrekking);
+servidor.delete('/caminata/:id', userLogged, trekkingController.deleteTrekking);
 
 //Escuchar servidor
 servidor.listen(3000, () => {

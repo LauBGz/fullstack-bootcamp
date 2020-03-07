@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const path =  require('path');
 
-//Importar controller
+//Importar body controller
 const bodyController = require('./body.controller');
 
 //Importar modelo de usuario
@@ -20,10 +20,13 @@ exports.register = (req, res) => {
     bodyController.checkBody(res, req.body, [
     "username", 
     "password", 
-    "email"]
+    "email",
+    "edad",
+    "peso",
+    "sexo"]
     );
 
-    usuarioModel.getUserByEmail(
+    usuarioModel.getUserByEmailOrUsername(
         req.body["username"], 
         req.body["email"], 
         (error, result) => {
