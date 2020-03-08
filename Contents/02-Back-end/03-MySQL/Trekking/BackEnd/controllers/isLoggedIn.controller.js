@@ -12,12 +12,15 @@ const claveJWT = JSON.parse(clave);
 module.exports = function isLoggedIn(req, res, next) {
     if (req.cookies.stamp){//Si hay cookie que la "valide"
         jwt.verify(req.cookies.stamp, claveJWT["jwt_clave"], (error, decode) => {
-            if (error) throw error;
-
+            if (error) {
+                res.send({"error": error});
+            } 
             if (decode !== undefined) {  
                 //Si no hay error y la cookie no es undefined que continúe con 
                 //la siguiente petición en cuestión
                 next();
+            } else {
+                res.send({"error": error});
             }
         });
     } else {
