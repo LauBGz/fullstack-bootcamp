@@ -25,7 +25,7 @@ module.exports = function isLoggedIn(req, res, next) {
         });
     } else {
         //Si no que devuela no autorizado
-        res.send(401, "Acceso no autorizado");
+        res.status(401).send("Acceso no autorizado");
     }
 }
 
