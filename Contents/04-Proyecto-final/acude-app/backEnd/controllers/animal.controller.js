@@ -33,7 +33,7 @@ exports.addAnimal = (req, res) => {
         "_id": data._id
         });
     })
-}
+};
 
 //Get all animals
 exports.getAllAnimals = (req, res) => {
@@ -41,7 +41,7 @@ exports.getAllAnimals = (req, res) => {
         if (error) throw error;
         res.send(animals)
     })
-}
+};
 
 //Get an animal
 exports.getAnAnimal = (req, res) => {
@@ -51,4 +51,35 @@ exports.getAnAnimal = (req, res) => {
         if (error) throw error;
         res.send(pets)
     })
+};
+
+//Delete an animal
+exports.deleteAnAnimal =  (req, res) => {
+    const id = req.params.id;
+
+    animal.findByIdAndDelete(id, (error, result) => {
+        res.send({"message": "Animal borrado del registro."});
+    })
+}
+
+//Update keywords
+exports.updateKeywords = (req, res) => {
+    const id = req.params.id;
+
+    const rq = req.body;
+
+    const data = {
+        "keyWords": rq.keyWords,
+    }
+
+    animal.findByIdAndUpdate(
+        id,
+        {
+            $set: data
+        },
+        (error, result) => {
+            if (error) throw error;
+            res.send({"message": "Palabras clave actualizadas."});
+        }
+    );
 }

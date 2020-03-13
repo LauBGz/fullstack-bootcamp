@@ -13,7 +13,8 @@ server.use(bodyParser.json());
 server.post('/addAnimal', animalController.addAnimal);
 server.get('/getAnAnimal/:id', animalController.getAnAnimal);
 server.get('/getAllAnimals', animalController.getAllAnimals);
-
+server.delete('/deleteAnAnimal/:id', animalController.deleteAnAnimal);
+server.put('/updateKeywords/:id', animalController.updateKeywords);
 
 //Listen server
 server.listen(3000, () => {
