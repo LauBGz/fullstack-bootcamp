@@ -11,6 +11,7 @@ server.use(bodyParser.json());
 
 //Endpoints
 server.post('/addAnimal', animalController.addAnimal);
+server.get('/getAnAnimal/:id', animalController.getAnAnimal);
 server.get('/getAllAnimals', animalController.getAllAnimals);
 
 

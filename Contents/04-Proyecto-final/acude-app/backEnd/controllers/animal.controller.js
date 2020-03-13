@@ -42,3 +42,13 @@ exports.getAllAnimals = (req, res) => {
         res.send(animals)
     })
 }
+
+//Get an animal
+exports.getAnAnimal = (req, res) => {
+    const id = req.params.id;
+  
+    animal.findById(id, (error, pets) => {
+        if (error) throw error;
+        res.send(pets)
+    })
+}
