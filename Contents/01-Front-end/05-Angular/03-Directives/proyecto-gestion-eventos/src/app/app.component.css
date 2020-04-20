@@ -2,3 +2,12 @@ th, td, tr {
     padding:10px 20px 10px 20px;
     border: none;
 }
+
+.numParticipantes{
+  width: 60px;
+}
+
+.estilosError{
+  color: red;
+  font-weight: bold
+}

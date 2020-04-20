@@ -56,12 +56,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let eventoProgramado of listadoDeEventosProgramados; let i = index">
-        <span [ngStyle]="estilosError">
-        <td>{{eventoProgramado["titulo"]}}</td></span>
+        
+        <td><span [ngClass]="{'estilosError': eventoProgramado['eventoPasado'] === true}">{{eventoProgramado["titulo"]}}</span></td>
+       
         <td>{{eventoProgramado["fechaInicio"]}} {{eventoProgramado["hora"]}}</td>
         <td>{{eventoProgramado["nombreFacilitador"]}}</td>
         <td><i class="fas fa-search-plus btn" data-toggle="modal" [attr.data-target]="'#exampleModal' + i" style="font-size: 2rem;"></i></td>
-        <td><input (blur)="validarParticipantes(i, $event)" type="text" class="numParticipantes" placeholder="Num participantes"></td>
+        <td><p>Actualizar nº participantes <input (blur)="validarParticipantes(i, $event)" type="number" class="numParticipantes" min="0" value="0"></td>
         <td><button (click)="borrar(i)" type="button" class="btn btn-warning">BORRAR</button></td>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal{{i}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -12,10 +12,11 @@ export class AppComponent {
   title = 'proyecto-gestion-eventos';
 
   listadoDeEventosProgramados:any [];
+  eventoPasado:boolean;
 
   constructor(){
     let primerEventoProgramado = new EventoProgramado(
-      "15/02/2020", 
+      "2020-02-15", 
       "20:00", 
       "Curso de Boostrap", 
       "Curso de iniciación a la librería de maquetación más usado",
@@ -25,7 +26,7 @@ export class AppComponent {
       5);
     
     let segundoEventoProgramado = new EventoProgramado(
-      "20/02/2020", 
+      "2020-02-20", 
       "18:00", 
       "Curso Switch", 
       "Aprende a sacar todo el partido de la herramienta por excelencia de programación.",
@@ -35,7 +36,7 @@ export class AppComponent {
       4);
     
     let tercerEventoProgramado = new EventoProgramado(
-      "24/02/2020", 
+      "2020-02-24", 
       "19:00", 
       "Filosofía existencial", 
       "¿De dónde venimos? ¿A dónde vamos? Descubre todas las respuestas.",
@@ -45,7 +46,18 @@ export class AppComponent {
       6);
 
       this.listadoDeEventosProgramados = [primerEventoProgramado, segundoEventoProgramado, tercerEventoProgramado];
-  }
+      
+      this.listadoDeEventosProgramados.forEach(element => {
+        this.calcularSiEventoPasado(element["fechaInicio"])
+        console.log(element["fechaInicio"])
+     
+      });
+  
+
+    }
+
+
+
   borrar(indice:number){
     this.listadoDeEventosProgramados.splice(indice, 1)
   }
@@ -60,18 +72,21 @@ export class AppComponent {
   //   }
   // }
 
-  estilosError:Object = {
-    "color": "red",
-    "font-weight": "bold"
-  }
+  
 
+  
 
   validarParticipantes(indice:string, event:any){
     
     let target = event.target || event.srcElement || event.currentTarget;
     let valorParticipante: string = target.value;
     if(valorParticipante > this.listadoDeEventosProgramados[indice]["numMaxParticipantes"]){
-      alert('introduce el numero correcto');
+      alert('Numero máximo de participantes superado.');
+    } else {
+      this.listadoDeEventosProgramados[indice]["numActualParticipantes"] =  valorParticipante;
+      console.log(this.listadoDeEventosProgramados[indice]["numActualParticipantes"])
+      alert('Numero de participantes actualizado.');
+      target.value = 0;
     }
     
     event.preventDefault();    
@@ -90,24 +105,32 @@ export class AppComponent {
     let nuevoEventoProgramado = new EventoProgramado(fecha, hora, titulo, descripcion, facilitador, email, maxPar, participantes);
     
     this.listadoDeEventosProgramados.push(nuevoEventoProgramado);  
+
+    this.listadoDeEventosProgramados.forEach(element => {
+      this.calcularSiEventoPasado(element["fechaInicio"])
+      console.log(element["fechaInicio"])
+   
+    });
+
     
-    let eventoPasado:boolean;
-    this.calcularSiEventoPasado(fecha);
+
   }
     
+  
   calcularSiEventoPasado(fechaEventoUsuario:string){
-    let eventoPasado = false;
+    this.eventoPasado = false;
     let fechaActualUnix = new Date().getTime();
     let fechaEvento = new Date(fechaEventoUsuario);
     let fechaEventoUnix = fechaEvento.getTime();
     let diferenciaFechas = fechaEventoUnix-fechaActualUnix;
     if(diferenciaFechas <= 0){
-      eventoPasado = true;
+      this.eventoPasado = true;
     }    
-    console.log(eventoPasado);
+    console.log(this.eventoPasado);
 
-    }
+    } 
 
+   
 }
 
 
